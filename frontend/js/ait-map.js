@@ -1,22 +1,32 @@
-const main = () => {
-    const point = [35.18005, 137.1091];
-    const size = [0.006545, 0.0114];
-    const bounds = L.latLngBounds(
-        point,
-        point.map((v, k) => v + size[k])
-    );
+const DISPLAY_RANGE = [
+    [35.18760, 137.103485],
+    [35.17910, 137.125330]
+];
 
-    const map = L.map('main-map', {
-        zoom: 17,
-        minZoom: 17,
-        maxZoom: 18,
-        center: bounds.getCenter()
-    });
+const main = () => {
+    const map = creatMap(DISPLAY_RANGE);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    coordinateLog(map);
+};
+
+const creatMap = (range) => {
+    const bounds = L.latLngBounds(...range);
+    const map = L.map('main-map', {
+        zoom: 17,
+        minZoom: 17,
+        maxZoom: 18,
+        center: bounds.getCenter(),
+        maxBounds: bounds
+    });
+    return map;
+}
+
+// テスト用、コンソールでの緯度経度表示
+const coordinateLog = (map) => {
     const crossIcon = L.icon({
         iconUrl: 'https://maps.gsi.go.jp/image/map/crosshairs.png',
         iconSize: [32, 32],
@@ -34,11 +44,9 @@ const main = () => {
         crossMarker.setLatLng(map.getCenter());
     });
 
-    const cityBounds = [
-        [35.18760, 137.103485],
-        [35.17910, 137.125330]
-    ];
-    map.setMaxBounds(cityBounds);
+    map.on('moveend', (e) => {
+        console.log(`${map.getCenter().lat}, ${map.getCenter().lng}`);
+    });
 };
 
 main();
