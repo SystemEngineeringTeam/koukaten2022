@@ -91,10 +91,7 @@ const points = {
         "coordinate": [35.183090663491726, 137.11204111576083]
     }
 };
-/*
 
-
-*/
 const loads = [
     {
         "start": "MainGate",
