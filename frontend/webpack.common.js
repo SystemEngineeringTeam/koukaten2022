@@ -3,8 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const entries = WebpackWatchedGlobEntries.getEntries([path.resolve(__dirname, './src/js/**/*.js')], {
-    ignore: path.resolve(__dirname, './src/js/**/_*.js'),
+const entries = WebpackWatchedGlobEntries.getEntries([path.resolve(__dirname, './src/js/*.js')], {
+    ignore: path.resolve(__dirname, './src/js/_*.js'),
 })();
 
 const htmlGlobPlugins = (entries, srcPath) => (
