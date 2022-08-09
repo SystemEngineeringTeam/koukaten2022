@@ -19,7 +19,7 @@ const htmlGlobPlugins = (entries, srcPath) => (
 module.exports = () => ({
     entry: entries,
     output: {
-        path: path.resolve(__dirname, './dist/'),
+        path: path.resolve(__dirname, 'dist'),
         filename: `./js/[name].js`
     },
     module: {
@@ -38,8 +38,8 @@ module.exports = () => ({
         ]
     },
     plugins: [
-        new WebpackWatchedGlobEntries(),
         new CleanWebpackPlugin(),
+        new WebpackWatchedGlobEntries(),
         ...htmlGlobPlugins(entries, './src')
     ]
 });
