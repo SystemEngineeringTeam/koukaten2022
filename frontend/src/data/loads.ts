@@ -1,4 +1,10 @@
-[
+type Loads = {
+    start: string,
+    end: string,
+    via?: [number, number][]
+}[];
+
+const loads: Loads = [
     {
         "start": "MainGate",
         "end": "BusStopMainGate",
@@ -18,4 +24,6 @@
         "end": "HeadquartersBuilding",
         "via": [[35.182840751211785, 137.11113989353183], [35.182836366778965, 137.11178898811343], [35.18293720867404, 137.11223959922793], [35.18311258558489, 137.11222887039187]]
     }
-]
+];
+
+export default loads;

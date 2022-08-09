@@ -1,5 +1,7 @@
+import * as L from 'leaflet';
+
 // テスト用、コンソールでの緯度経度表示
-const coordinateLog = (map) => {
+const coordinateLog = (map: L.Map) => {
     const crossIcon = L.icon({
         iconUrl: 'https://maps.gsi.go.jp/image/map/crosshairs.png',
         iconSize: [32, 32],
