@@ -42,10 +42,10 @@ const displayData = (map: L.Map) => {
 
     for (const load of loads) {
         const path = [
-            points[load.start].coordinate,
+            points.find(v => v.id === load.start)!.coordinate,
             ...(load.via ?? []),
-            points[load.end].coordinate
-        ];
+            points.find(v => v.id === load.end)!.coordinate
+        ] as [number, number][];
         L.polyline(path, { color: "red", weight: 5, opacity: 0.5 }).addTo(map);
     }
 }

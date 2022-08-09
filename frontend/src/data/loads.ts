@@ -1,6 +1,8 @@
+import points from './points';
+
 type Loads = {
-    start: string,
-    end: string,
+    start: typeof points[number]['id'],
+    end: typeof points[number]['id'],
     via?: [number, number][]
 }[];
 
