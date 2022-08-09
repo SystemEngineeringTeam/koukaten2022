@@ -2,26 +2,21 @@ import * as L from 'leaflet';
 
 // テスト用、コンソールでの緯度経度表示
 const coordinateLog = (map: L.Map) => {
-    const crossIcon = L.icon({
-        iconUrl: 'https://maps.gsi.go.jp/image/map/crosshairs.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16]
-    });
+    let marked: L.Marker;
+    map.on('click', (e) => {
+        if (marked) marked.remove();
+        marked = L.marker(e.latlng, { draggable: true }).addTo(map);
 
-    const crossMarker = L.marker(map.getCenter(), {
-        icon: crossIcon,
-        zIndexOffset: 1000,
-        interactive: false
-    }).addTo(map);
+        popopLatlng(marked, e.latlng);
 
-
-    map.on('move', (e) => {
-        crossMarker.setLatLng(map.getCenter());
-    });
-
-    map.on('moveend', (e) => {
-        console.log(`${map.getCenter().lat}, ${map.getCenter().lng}`);
-    });
+        marked.on('dragend', (e) => {
+            popopLatlng(marked, marked.getLatLng());
+        })
+    })
 };
+
+const popopLatlng = (marker: L.Marker, latlng: L.LatLng) => {
+    marker.bindPopup(`${latlng.lat}, ${latlng.lng}`).openPopup();
+}
 
 export default coordinateLog;
