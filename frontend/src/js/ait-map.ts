@@ -3,6 +3,7 @@ import loads from '../data/loads';
 import points from '../data/points';
 
 import * as L from 'leaflet';
+import registerRouteData from './ait-map/registerRouteData';
 
 const DISPLAY_RANGE: [[number, number], [number, number]] = [
     [35.18760, 137.103485],
@@ -16,8 +17,7 @@ const main = () => {
         attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    coordinateLog(map);
-    displayData(map);
+    registerRouteData(map);
 };
 
 const creatMap = () => {
