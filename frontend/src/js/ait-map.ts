@@ -35,6 +35,7 @@ const creatMap = () => {
 // テスト用
 const displayData = (map: L.Map) => {
     for (const [key, val] of Object.entries(points)) {
+        if (val.jp === undefined) continue;
         L.marker(val.coordinate as [number, number])
             .addTo(map)
             .bindPopup(val.jp);
