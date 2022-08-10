@@ -1,6 +1,7 @@
 import * as L from 'leaflet';
 import routeData from '../../data/routeData.json';
 import DataManager from './dataManager';
+import { PointData } from './type';
 
 const modeElms = document.querySelectorAll<HTMLInputElement>('input[type="radio"][name="register-mode"]');
 const isAutoConnectElm = document.querySelector<HTMLInputElement>('#auto-connect');
@@ -12,7 +13,19 @@ const dataManager = new DataManager(routeData);
 
 const registerRouteData = (map: L.Map) => {
     map.on('click', (e) => {
-        console.log(getSettings());
+        const settings = getSettings();
+        switch (settings.mode) {
+            case 0:
+                const data = {
+                    id: DataManager.getId(),
+                    jp: settings.displayName,
+                    latlng: e.latlng
+                };
+                pointMarker(data).addTo(map);
+                break;
+            default:
+                break;
+        }
     });
 
     if (outputBtnElm && outputField){
@@ -20,6 +33,17 @@ const registerRouteData = (map: L.Map) => {
             outputField.innerText = dataManager.toString();
         }
     };
+};
+
+const pointMarker = (data: PointData) => {
+    const marker = L.marker(data.latlng, { draggable: true });
+    marker.on('moveend', (e) => {
+        data.latlng = marker.getLatLng();
+        dataManager.add('point', data);
+    });
+
+    dataManager.add('point', data);
+    return marker;
 };
 
 const getSettings = () => {

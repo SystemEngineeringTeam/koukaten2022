@@ -1,16 +1,16 @@
-type PointData = {
-    id: string,
-    jp?: string,
-    latlng: { lat: number, lng: number }
-};
-type PathData = { from: string, to: string };
-type RouteData = { points: PointData[], paths: PathData[] };
+import type { PathData, PointData, RouteData } from "./type";
+
 
 class DataManager {
     routeData: RouteData;
 
     constructor (initialData?: RouteData) {
         this.routeData = initialData ?? { points: [], paths: [] };
+    }
+
+    static getId () {
+        const now = new Date();
+        return Number("" + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds() + now.getMilliseconds()).toString(36);
     }
 
     add (type: 'point', data: PointData): boolean;
