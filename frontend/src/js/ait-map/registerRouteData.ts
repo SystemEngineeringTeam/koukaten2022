@@ -22,7 +22,7 @@ const registerRouteData = (map: L.Map) => {
             case 0: {
                 const data = {
                     id: DataManager.getId(),
-                    jp: "",
+                    jp: undefined,
                     latlng: e.latlng
                 };
                 pointMarker(data).addTo(map);
@@ -50,7 +50,11 @@ const pointMarker = (data: PointData) => {
     });
 
     marker.on('click', (e) => {
-        updateSelected();
+        if (marker === selected) {
+            releaseSelected();
+        } else {
+            updateSelected();
+        }
     });
 
     updateSelected();
@@ -79,6 +83,14 @@ const updateSelectedGene = (marker: L.Marker, data: PointData) => () => {
             data.jp = displayNameElm.value;
             dataManager.add('point', data);
         }
+    }
+};
+
+const releaseSelected = () => {
+    selected?.setOpacity(0.5);
+    selected = undefined;
+    if (displayNameElm) {
+        displayNameElm.onchange = null;
     }
 }
 
