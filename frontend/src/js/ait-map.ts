@@ -1,7 +1,3 @@
-import coordinateLog from './ait-map/coordinateLog';
-import loads from '../data/loads';
-import points from '../data/points';
-
 import * as L from 'leaflet';
 import registerRouteData from './ait-map/registerRouteData';
 
@@ -30,25 +26,6 @@ const creatMap = () => {
         maxBounds: bounds
     });
     return map;
-}
-
-// テスト用
-const displayData = (map: L.Map) => {
-    for (const [key, val] of Object.entries(points)) {
-        if (val.jp === undefined) continue;
-        L.marker(val.coordinate as [number, number])
-            .addTo(map)
-            .bindPopup(val.jp);
-    }
-
-    for (const load of loads) {
-        const path = [
-            points.find(v => v.id === load.start)!.coordinate,
-            ...(load.via ?? []),
-            points.find(v => v.id === load.end)!.coordinate
-        ] as [number, number][];
-        L.polyline(path, { color: "red", weight: 5, opacity: 0.5 }).addTo(map);
-    }
 }
 
 main();

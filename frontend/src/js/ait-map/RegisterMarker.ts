@@ -1,4 +1,5 @@
 import * as L from 'leaflet';
+import { displayNameElm, getSettings } from './RegisterMenu';
 import { PathData, PointData } from './type';
 
 const POINT_DB = new Map<string, PointData>();
@@ -6,18 +7,17 @@ const PATH_DB = new Map<string, PathData>();
 
 const OPACITY = { UNSELECT: 0.5, SELECT: 1 };
 
-// TODO もうちょっと綺麗にしたい
-const displayNameElm = document.querySelector<HTMLInputElement>('#display-name');
-
 class RegisterMarker {
     point: PointData;
     marker: L.Marker;
+    reach: Map<string, RegisterMarker>;
 
     static selected: RegisterMarker | undefined;
 
-    constructor (point: PointData) {
+    constructor (map: L.Map, point: PointData) {
         this.point = point;
         this.marker = L.marker(point.latlng, { draggable: true });
+        this.reach = new Map();
 
         this.marker.on('movestart', (e) => {
             this.select(true);
@@ -29,6 +29,12 @@ class RegisterMarker {
         });
 
         this.marker.on('click', (e) => {
+            const settings = getSettings();
+            if (settings.mode === 1 && RegisterMarker.selected) {
+                const line = this.connectTo(RegisterMarker.selected, RegisterMarker.getId());
+                line?.addTo(map);
+            }
+
             if (this.marker === RegisterMarker.selected?.marker) {
                 this.select(false);
             } else {
@@ -37,6 +43,7 @@ class RegisterMarker {
         });
 
         this.select(true);
+        this.marker.addTo(map);
         POINT_DB.set(point.id, point);
     }
 
@@ -45,16 +52,29 @@ class RegisterMarker {
         POINT_DB.set(this.point.id, this.point);
     }
 
-    addTo (map: L.Map): RegisterMarker {
-        this.marker.addTo(map);
-        return this;
-    }
-
     select (selectThis: boolean) {
         RegisterMarker.selected?.marker.setOpacity(OPACITY.UNSELECT);
         if (selectThis) this.marker.setOpacity(OPACITY.SELECT);
-        if (displayNameElm) displayNameElm.value = selectThis ? this.point.jp ?? "" : "";
+        displayNameElm.value = selectThis ? this.point.jp ?? "" : "";
         RegisterMarker.selected = selectThis ? this : undefined;
+    }
+
+    connectTo (to: RegisterMarker, id: string, turn: boolean = false): L.Polyline | undefined {
+        if (this.reach.has(to.point.id)) return;
+        const distance = L.latLng(this.point.latlng).distanceTo(to.point.latlng);
+        this.reach.set(to.point.id, to);
+
+        if (turn) {
+            PATH_DB.set(id, {
+                from: this.point.id,
+                to: to.point.id,
+                distance
+            });
+            const line = L.polyline([this.point.latlng, to.point.latlng], { color: 'red', opacity: 0.5 });
+            return line;
+        } else {
+            return to.connectTo(this, id, true);
+        }
     }
 
     static getId () {
