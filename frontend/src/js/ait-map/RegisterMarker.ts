@@ -84,8 +84,8 @@ class RegisterMarker {
 
     static toString() {
         return JSON.stringify({
-            points: Array.from(POINT_DB.values()),
-            paths: Array.from(PATH_DB.values())
+            points: [...POINT_DB.values()],
+            paths: [...PATH_DB.values()]
         });
     }
 }

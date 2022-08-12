@@ -25,7 +25,7 @@ export const outputBtnElm = document.querySelector<HTMLButtonElement>('#output-b
 export const outputField = document.querySelector<HTMLDivElement>('#output')!;
 
 export const getSettings = () => {
-    const mode = Number(Array.from(modeElms).find(v => v.checked)?.value ?? 0);
+    const mode = Number([...modeElms].find(v => v.checked)?.value ?? 0);
     const isAutoConnect = isAutoConnectElm.checked;
     const displayName = displayNameElm.value;
 
