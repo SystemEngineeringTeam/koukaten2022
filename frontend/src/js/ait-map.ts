@@ -14,8 +14,8 @@ const main = () => {
         attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // registerRouteData(map);
-    routeSerch(map);
+    registerRouteData(map);
+    // routeSerch(map);
 };
 
 const creatMap = () => {
