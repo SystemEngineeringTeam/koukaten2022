@@ -8,14 +8,15 @@ folder_name VARCHAR( 100 ),
 subject_code VARCHAR( 100 ),
 subject_name VARCHAR( 100 ),
 grade VARCHAR( 100 ),
-class_code INT(11),
+class_code VARCHAR(11),
 class_room VARCHAR( 100 ),
 semester VARCHAR( 100 ),
 day_time VARCHAR( 100 ),
 classification VARCHAR( 100 ),
 credit INT(11),
 primary key (id)
-foreign key(class_room) references data_sets.room_date(room_number)
+-- 教室データが作成できたら有効化
+-- foreign key(class_room) references data_sets.room_date(room_number)
 );
 
 /* INSERT QUERY */
@@ -113,7 +114,7 @@ VALUES
 INSERT INTO subject_data( folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit )
 VALUES
 (
-    'I','K1011000','基礎数学及び演習','2・3・4',再履１,'G2209','前期','月Ⅴ・火Ⅴ','必修',3
+    'I','K1011000','基礎数学及び演習','2・3・4','再履１','G2209','前期','月Ⅴ・火Ⅴ','必修',3
 );
 
 /* INSERT QUERY */
@@ -183,21 +184,21 @@ VALUES
 INSERT INTO subject_data( folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit )
 VALUES
 (
-    'I','K1019000','物理学（力学）','2・3・4',再履１,'G2209','前期','木Ⅴ','必修',2
+    'I','K1019000','物理学（力学）','2・3・4','再履１','G2209','前期','木Ⅴ','必修',2
 );
 
 /* INSERT QUERY */
 INSERT INTO subject_data( folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit )
 VALUES
 (
-    'I','K1019000','物理学（力学）','2・3・4',再履２,'G2208','前期','火Ⅴ','必修',2
+    'I','K1019000','物理学（力学）','2・3・4','再履２','G2208','前期','火Ⅴ','必修',2
 );
 
 /* INSERT QUERY */
 INSERT INTO subject_data( folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit )
 VALUES
 (
-    'I','K1019000','物理学（力学）','1・2・3・4',再履３,'G2208','後期','火Ⅴ','必修',2
+    'I','K1019000','物理学（力学）','1・2・3・4','再履３','G2208','後期','火Ⅴ','必修',2
 );
 
 /* INSERT QUERY */
@@ -869,7 +870,7 @@ VALUES
 INSERT INTO subject_data( folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit )
 VALUES
 (
-    'I','X1015000','基礎数学及び演習','3・4',再履１,'G2209','前期','月Ⅴ・火Ⅴ','必修',3
+    'I','X1015000','基礎数学及び演習','3・4','再履１','G2209','前期','月Ⅴ・火Ⅴ','必修',3
 );
 
 /* INSERT QUERY */

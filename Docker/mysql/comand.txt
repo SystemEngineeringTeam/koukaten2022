@@ -1,35 +1,10 @@
-1, [sql] mkdir /hoge
-2, [mac] docker cp ~.csv test-mysql:/hoge
-3, [sql] touch /etc/mysql/conf.d/character.cnf
-4, [sql] cat <<EOS > character.cnf
-            > [mysql]
-            > default-character-set=utf8
-            > [mysqld]
-            > character-set-server=utf8
-            > EOS
-5, [sql] mysql -u root -p --enable-local-infile
-6, [sql] create database test;
-7, [sql] create table test.test_table
-            >(
-            >folder_name varchar(16) not null,
-            >subject_code varchar(10) not null,
-            >subjecr_name varchar(16) not null,
-            >grade varchar(10) not null,
-            >class_code varchar(5) not null,
-            >class_room varchar(10) not null,
-            >semester varchar(5) not null,
-            >day_time varchar(10) not null,
-            >classification varchar(5) not null,
-            >credit int not null,
-            >id int not null auto_increment,
-            >primary key (id) 
-            >);
-8, [sql] set persist local_infile=1;
-9, [sql] load data local
-            > infile '/hoge/~.csv'
-            >into table
-            >test.test_table
-            >fields
-            >terminated by ','
-            >ignore 1 lines
-            >;
+(docker-compose.ymlのある場所で)
+docker compose build 
+docker compose up　-d
+docker exec -it koukaten2022-_DB
+(コンテナにログイン)
+mysql -u root -p
+(パスワード　＝　admin)
+(mysqlにログイン)
+select * from data_sets.subject_data;
+(授業テーブルの表示)
