@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="signup.css">
-        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="test.css">
     </head>
     <body>
-        <header>
-            <h1>新規登録</h1>
-        </header>
-        
-        <div class="container">
-            <input type="text" id="username" name="username" class="item">
-            <input type="text" id="pass" name="pass" class="item">
-            <button id="register" class="item">登録</button>
-        </div>
-        
+        <h2>新規ユーザの登録</h2>
+        <p><span class="label label-danger">入力画面</span> -> 確認画面</p>
+        <form action="user-confirm" method="post">
+            <table>
+                <tr>
+                    <td>アカウント名</td>
+                    <td><input type="text" id="account" class="required" onclick="getValue()"></td>
+                </tr>
+                <tr>
+                    <td>お名前</td>
+                    <td><input type="text" id="name" class="required" onclick="getValue()"></td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type="password" id="sampleForm" onclick="getValue()"></td>
+                    
+                </tr>
+                
+            </table>
+            <div id="parent-div">
+                <p id="inputpass">パスワードはあと<span id="inputCounter">0</span>文字で入力してください</p>
+            </div>
+
+            <!-- <input type="button" onclick="showMessage()" value="送信"> -->
+            <!-- <p id="output-message"></p> -->
+
+            <!-- <input type="button" value="保存" class="check" onclick="getValue()"> -->
+            <input type="button" value="確認画面へ" class="check" onclick="disp()" id="text">
+        </form>
+
+        <script type="text/javascript" src="sigup.js"></script>
+
+        <!-- <script type="text/javascript" src="test_conf.js"></script> -->
     </body>
 </html>
