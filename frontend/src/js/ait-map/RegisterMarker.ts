@@ -10,7 +10,7 @@ const OPACITY = { UNSELECT: 0.5, SELECT: 1 };
 class RegisterMarker {
     point: PointData;
     marker: L.Marker;
-    reach: Map<string, RegisterMarker>;
+    reach: Map<string, Path>;
 
     static selected: RegisterMarker | undefined;
 
@@ -23,6 +23,12 @@ class RegisterMarker {
             this.select(true);
         });
 
+        this.marker.on('move', (e) => {
+            for (const path of this.reach.values()) {
+                path.update();
+            }
+        })
+
         this.marker.on('moveend', (e) => {
             point.latlng = this.marker.getLatLng();
             POINT_DB.set(point.id, point);
@@ -31,7 +37,8 @@ class RegisterMarker {
         this.marker.on('click', (e) => {
             const settings = getSettings();
             if (settings.mode === 1 && RegisterMarker.selected) {
-                const line = this.connectTo(RegisterMarker.selected, RegisterMarker.getId());
+                const line = this.connectTo(RegisterMarker.selected);
+                console.log(line);
                 line?.addTo(map);
             }
 
@@ -59,22 +66,14 @@ class RegisterMarker {
         RegisterMarker.selected = selectThis ? this : undefined;
     }
 
-    connectTo (to: RegisterMarker, id: string, turn: boolean = false): L.Polyline | undefined {
-        if (this.reach.has(to.point.id)) return;
-        const distance = L.latLng(this.point.latlng).distanceTo(to.point.latlng);
-        this.reach.set(to.point.id, to);
+    connectTo (to: RegisterMarker) {
+        const from: RegisterMarker = this;
+        if (from.reach.has(to.point.id)) return;
+        const path = new Path(from, to);
 
-        if (turn) {
-            PATH_DB.set(id, {
-                from: this.point.id,
-                to: to.point.id,
-                distance
-            });
-            const line = L.polyline([this.point.latlng, to.point.latlng], { color: 'red', opacity: 0.5 });
-            return line;
-        } else {
-            return to.connectTo(this, id, true);
-        }
+        from.reach.set(to.point.id, path);
+        to.reach.set(from.point.id, path);
+        return path.line;
     }
 
     static getId () {
@@ -87,6 +86,37 @@ class RegisterMarker {
             points: [...POINT_DB.values()],
             paths: [...PATH_DB.values()]
         });
+    }
+}
+
+class Path {
+    via: RegisterMarker[];
+    line: L.Polyline;
+    id: string;
+    constructor (...via: RegisterMarker[]) {
+        this.id = Path.getId();
+        this.via = via;
+        this.line = L.polyline(
+            this.getLatlngs(),
+            { color: 'green', opacity: 0.5 }
+        );
+    }
+
+    setVia (...via: RegisterMarker[]) {
+        this.via = via;
+    }
+
+    update () {
+        this.line.setLatLngs(this.getLatlngs());
+    }
+
+    getLatlngs () {
+        return this.via.map(v => v.marker.getLatLng());
+    }
+
+    static getId () {
+        const now = new Date();
+        return Number("" + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds() + now.getMilliseconds()).toString(36);
     }
 }
 
