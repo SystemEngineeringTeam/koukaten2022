@@ -10,3 +10,4 @@ select * from data_sets.subject_data;
 (授業テーブルの表示)
 
 http://localhost:8080/で作成したサーバにアクセス
+今のところは科目名だけ検索できるようにしてあります
