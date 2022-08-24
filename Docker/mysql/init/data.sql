@@ -1,6 +1,3 @@
-CREATE DATABASE data_sets;
-use data_sets;
-
  /* CREATE TABLE */
 CREATE TABLE subject_data(
 id int not NULL auto_increment,
