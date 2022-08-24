@@ -1,15 +1,12 @@
-/* CREATE DATABASE */
-CREATE DATABASE data_sets;
-
  /* CREATE TABLE */
-CREATE TABLE IF NOT EXISTS data_sets.class_room(
-id int not NULL auto_increment,    
+CREATE TABLE IF NOT EXISTS data_sets.class_room(   
 room_number VARCHAR( 100 ),
 room_name VARCHAR( 100 ),
 building_name VARCHAR( 100 ),
-floor INT(11),
-primary key (id)
-);
+floor VARCHAR(11),
+primary key (room_number),
+foreign key (building_name) references data_sets.building(building_name)
+) ENGINE = InnoDB;
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
@@ -232,189 +229,189 @@ VALUES
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-M201','実験室','2号館','M2'
+    '2-M201','実験室','2号館実験棟','M2'
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-M202','実験室','2号館','M2'
+    '2-M202','実験室','2号館実験棟','M2'
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-M203','実験室','2号館','M2'
+    '2-M203','実験室','2号館実験棟','M2'
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-B100','倉庫','2号館','B1'
+    '2-B100','倉庫','2号館実験棟','B1'
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-113','技術員室','2号館',1
+    '2-113','技術員室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-114','研究室','2号館',1
+    '2-114','研究室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-115','実験室','2号館',1
+    '2-115','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-116','実験室','2号館',1
+    '2-116','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-117','実験室','2号館',1
+    '2-117','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-118','実験室','2号館',1
+    '2-118','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-119','実験室','2号館',1
+    '2-119','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-120','土質実験室','2号館',1
+    '2-120','土質実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-121','実験室','2号館',1
+    '2-121','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-122','測量機器室','2号館',2
+    '2-122','測量機器室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-123','実験室','2号館',2
+    '2-123','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-124','実験室','2号館',2
+    '2-124','実験室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-125','暗室','2号館',2
+    '2-125','暗室','2号館実験棟',1
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-201','振動・低周波実験室','2号館',2
+    '2-201','振動・低周波実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-202','音・振動実験室','2号館',2
+    '2-202','音・振動実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-203','熱講義実験室','2号館',2
+    '2-203','熱講義実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-204','設備講義実験室','2号館',2
+    '2-204','設備講義実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-205','音環境講義実験室','2号館',2
+    '2-205','音環境講義実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-206','光環境講義実験室','2号館',2
+    '2-206','光環境講義実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-207','講義実験準備室測量室','2号館',2
+    '2-207','講義実験準備室測量室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-208','環境材料研究実験室','2号館',2
+    '2-208','環境材料研究実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-209','工作室・材料置場','2号館',2
+    '2-209','工作室・材料置場','2号館実験棟',2
 );
 
 /* INSERT QUERY */
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    '2-210','熱・湿気研究実験室','2号館',2
+    '2-210','熱・湿気研究実験室','2号館実験棟',2
 );
 
 /* INSERT QUERY */
@@ -3361,7 +3358,7 @@ VALUES
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    'G2110','大講義室','10号館',1
+    'G2110','大講義室','10号館大講義室',1
 );
 
 /* INSERT QUERY */
@@ -3431,7 +3428,7 @@ VALUES
 INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
 VALUES
 (
-    'G2210','大講義室','10号館',2
+    'G2210','大講義室','10号館大講義室',2
 );
 
 /* INSERT QUERY */
@@ -4210,3 +4207,46 @@ VALUES
 (
     '12-410','ゼミ室','12号館',4
 );
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    'ﾏｲｺﾝ室1','ﾏｲｺﾝ室1','計算センター',3
+);
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    'ﾏｲｺﾝ室2','ﾏｲｺﾝ室2','計算センター',3
+);
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    'セ-実習室1','セ-実習室1','計算センター',3
+);
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    'セ-実習室2','セ-実習室2','計算センター',4
+);
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    '情教実習室A','情教実習室A','情報教育センター',2
+);
+
+/* INSERT QUERY */
+INSERT INTO data_sets.class_room( room_number,room_name,building_name,floor )
+VALUES
+(
+    '情教実習室B','情教実習室B','情報教育センター',3
+);
+
