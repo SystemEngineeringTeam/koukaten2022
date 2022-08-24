@@ -1,4 +1,4 @@
-folder_name,subject_code,subject_name,grade,class_code,class_room,semester,day_time,classification,credit
+﻿フォルダ名,科目コード,科目名,対象学年,クラスコード,講義室,開講学期,曜日・時限,単位区分,単位数
 工学部,A0202000,技術者倫理,3年・4年,X1,１－３０３,後期,金Ⅲ,選択,2
 工学部,A0203000,地球環境,3年・4年,X1,Ｇ１５２,後期,月Ⅰ,選択,2
 工学部,A0204000,キャリア意識形成,2年,11,Ｇ３５０２,前期,月Ⅰ,選択,2
