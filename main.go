@@ -24,7 +24,20 @@ func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
 
+	//login2.htmlへ遷移
 	router.GET("/", func(ctx *gin.Context) {
+		db := sqlConnect()
+		var users []User
+		db.Order("created_at asc").Find(&users)
+		defer db.Close()
+
+		ctx.HTML(200, "login2.html", gin.H{
+			"users": users,
+		})
+	})
+
+	//index.htmlへ遷移
+	router.GET("/registation/", func(ctx *gin.Context) {
 		db := sqlConnect()
 		var users []User
 		db.Order("created_at asc").Find(&users)

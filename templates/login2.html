@@ -3,40 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
+    <style type="text/css" media="screen">
+        @charset "UTF-8";
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+        
+    </style>
     <link rel="stylesheet" type="text/css" href="login2.css">
 </head>
 <body>
-   <div>
         <!-- フォーム -->
-        <form>
-            <center>
-                <h1>ログイン</h1>
-                <p>ID, Passwordをご入力の上, 「認証」ボタンをクリックしてください.</p>
-            </center>
-            <div>
-                 <center>
-                    <div>
-                        <input type="id" name="id" placeholder="ID">
+        <form method="post" action="#">
+
+            <div class="title">
+                <center>
+                    <h1>ログイン</h1>
+                    <p>ID, Passwordをご入力の上, 「認証」ボタンをクリックしてください.</p>
+                </center>
+            </div>
+            
+            <div class="input">
+                <center>
+                    <div class="input-id">
+                        <input type="id" name="id" placeholder="ID" >
                     </div>
                     <br>
-                    <div>
-                        <input type="password" name="pass" placeholder="Password"
+                    <div class="input-pass">
+                        <input type="password" name="pass" placeholder="Password">
                     </div>
                 </center>
             </div>
-            <br>
-            <button type="button">認証</button>
 
-            <div>
-                <center>
-                    <h2>新規登録はこちらから</h1>
-                    <p>ID, Passwordをお持ちでない方は初めに新規登録をしてください.</p>
-                </center>
-            </div>
             <br>
-            <button type="button">新規登録</button>
-
+            <button type="button" value="#">認証</button> 
+            
         </form>
-   </div>
+        <!-- ここまで -->
+
+        <div class="new-registation">
+            <center>
+                <h2>新規登録はこちらから</h1>
+                <p>ID, Passwordをお持ちでない方は初めに新規登録をしてください.</p>
+            </center>
+            <br>
+            <a href="/registation/">
+                <button type="button">新規登録</button>
+            </a>
+        </div>
+    
 </body>
 </html>
