@@ -12,4 +12,5 @@ use go_database;
 select * from users;
 (ユーザーテーブルの表示)
 
-http://localhost:8080/で作成したサーバにアクセス
+http://localhost:8080/で作成したサーバにアクセス.
+
