@@ -10,10 +10,12 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+//
 type User struct {
 	gorm.Model
-	Name  string
-	Email string
+	Name     string
+	Id       string
+	Password string
 }
 
 func main() {
@@ -26,7 +28,11 @@ func main() {
 
 	//login2.htmlへ遷移
 	router.GET("/", func(ctx *gin.Context) {
+
+		//データベース接続
 		db := sqlConnect()
+
+		//User構造体の配列を定義
 		var users []User
 		db.Order("created_at asc").Find(&users)
 		defer db.Close()
@@ -51,9 +57,10 @@ func main() {
 	router.POST("/new", func(ctx *gin.Context) {
 		db := sqlConnect()
 		name := ctx.PostForm("name")
-		email := ctx.PostForm("email")
-		fmt.Println("create user " + name + " with email " + email)
-		db.Create(&User{Name: name, Email: email})
+		id := ctx.PostForm("id")
+		password := ctx.PostForm("password")
+		fmt.Println("create user " + name + " with email " + id + "with password" + password)
+		db.Create(&User{Name: name, Id: id, Password: password})
 		defer db.Close()
 
 		ctx.Redirect(302, "/")
