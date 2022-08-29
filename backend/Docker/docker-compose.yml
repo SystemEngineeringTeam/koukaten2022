@@ -1,7 +1,7 @@
 version: "3"
 services:
   mysql:
-    container_name: koukaten2022_DB
+    container_name: koukaten2022_mysql
     build: ./mysql
     ports:
       - "3306:3306"
@@ -10,3 +10,37 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: koukaten2022_DB
+
+  postgis:
+    container_name: koukaten2022_postgis
+    build:
+      context: ./postgis
+    restart: always
+    environment:
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: osm
+        POSTGRES_PORT_5432_TCP_PORT: 5432
+    ports:
+        - "5432:5432"
+    volumes:
+        - ./osm:/osm
+        - db-data:/var/lib/postgresql/data
+
+  osm2pgsql:
+    container_name: koukaten2022_osm2pgsql
+    image: openfirmware/osm2pgsql:latest
+    restart: always
+    stdin_open: true
+    tty: true
+    links:
+      - "postgis:pg"
+    environment:
+      PG_PORT_5432_TCP_ADDR: postgis
+      PG_PORT_5432_TCP_PORT: 5432
+      PG_ENV_OSM_DB: osm
+      PG_ENV_OSM_USER: postgres
+      PG_ENV_POSTGRES_PASSWORD: password
+    volumes:
+      - ./osm:/osm     
+volumes:
+    db-data:
