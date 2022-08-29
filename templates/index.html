@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Sample App</title>
+    <meta charset="UTF-8">
+    <title>Sample App</title>
+    <style type="text/css"></style>
 </head>
 <body>
     <h2>ユーザー追加</h2>
-    <form method="post" action="/new">
+    <form method="post" id="register" action="/new">
         <p>名前<input type="text" name="name" size="30" placeholder="入力してください" ></p>
-        <p>メールアドレス<input type="text" name="email" size="30" placeholder="入力してください" ></p>
+        <p>ID<input type="text" name="name" size="30" placeholder="入力してください" ></p>
+        <p>パスワード<input type="password" id="password" name="password" size="30" placeholder="入力してください" ></p>
+        <div id="parent-div"> <!-- パスワードの長さ確認 -->
+            <p id="inputpass">パスワードはあと<span id="inputCounter">0</span>文字で入力してください</p>
+        </div>
+        <p id="result"></p>
+        <!-- <p>確認<input type="password" id="sampleForm" name="password" size="30" placeholder="入力してください" ></p> -->
         <p><input type="submit" value="Send"></p>
     </form>
     <h2>ユーザー一覧</h2>
     <table>
         <tr>
             <td>名前</td>
-            <td>メールアドレス</td>
+            <td>ID</td>
+            <td>パスワード</td>
         </tr>
         {{ range .users }}
         <tr>
@@ -29,5 +37,83 @@
         </tr>
         {{ end }}
     </ul>
+    <script>
+        // ---パスワードの長さ確認用---
+        var input = document.getElementById("password");
+        var span = document.getElementById("inputCounter");
+        input.addEventListener("keyup", function() {
+            span.textContent = 20 - input.value.length;
+            if(input.value.length > 20){
+                let list_element = document.getElementById("parent-div");
+                let remove_element = list_element.removeChild(list_element.firstElementChild);
+                console.log(remove_element.textContent); // テキスト1
+            // 追加する要素を作成します
+            // ----------------------------
+            var newElement = document.createElement("p"); // p要素作成
+            var newContent = document.createTextNode("パスワードは20文字以内で入力してください"); // テキストノードを作成
+            newElement.appendChild(newContent); // p要素にテキストノードを追加
+            newElement.setAttribute("id","child-p1"); // p要素にidを設定
+            // ----------------------------
+            // 親要素の最初の子要素を追加します
+            // ----------------------------
+            // 親要素（div）への参照を取得
+            var parentDiv = document.getElementById("parent-div");
+            // 追加
+            parentDiv.insertBefore(newElement, parentDiv.firstChild);
+            }
+        });
+        // ----------------------
+
+        // 強度チェッカー入れたい...
+        $(function() {
+            $('#password').on('keyup', function() {
+                // 入力値を取得する     
+                const value = $(this).val();
+                // 入力値を元に強度を確認して結果を受け取る
+                const result = checkStrength($('#password').val());
+                // 結果を出力
+                $('#result').html(result);
+            });
+
+        function checkStrength(password) {
+            let strength = 0 // 強さ
+            if (password.length < 6) {
+                $('#result').removeClass()
+                $('#result').addClass('short')
+                return '短すぎます!!'
+            }
+            // 文字数が7より大きいければ+1
+            if (password.length > 7) strength += 1
+        
+            // 英字の大文字と小文字を含んでいれば+1
+            if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
+
+            // 英字と数字を含んでいれば+1
+            if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
+
+            // 記号を含んでいれば+1
+            if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+        
+            // 記号を2つ含んでいれば+1
+            if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+        
+            // 点数を元に強さを計測
+            if (strength < 2) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+                return '弱いです〜'
+            } else if (strength == 2) {
+                $('#result').removeClass()
+                $('#result').addClass('good')
+                return 'いい感じ！！'
+            } else {
+                $('#result').removeClass()
+                $('#result').addClass('strong')
+                return '強いです！！'
+            }
+        }
+    });
+
+    </script>
 </body>
 </html>
