@@ -13,5 +13,6 @@ module.exports = merge(common(), {
             target: 'ait-map.html'
         },
         liveReload: true,
+        watchFiles: ['src/**.html', 'src/css/**.css'],
     },
 });

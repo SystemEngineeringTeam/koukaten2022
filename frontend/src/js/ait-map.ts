@@ -14,14 +14,14 @@ const main = () => {
         attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    registerRouteData(map);
+    // registerRouteData(map);
     // routeSerch(map);
 };
 
 const creatMap = () => {
     const bounds = L.latLngBounds(...DISPLAY_RANGE);
     const map = L.map('main-map', {
-        zoom: 17,
+        zoom: 20,
         minZoom: 17,
         maxZoom: 18,
         center: bounds.getCenter(),
