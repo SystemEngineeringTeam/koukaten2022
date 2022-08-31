@@ -29,6 +29,33 @@ header>a {
     font-size: 2rem;
 }
 
+#main {
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 50em;
+}
+
 #main-map {
     height: 50vh;
+}
+
+#today-timetable {
+    display: grid;
+    row-gap: 0.2em;
+}
+
+.timetable-row {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    column-gap: 0.5em;
+}
+
+.timetable-time {
+    text-align: center;
+    background-color: #b3f7ff;
+    width: 100%;
+}
+
+.timetable-classname {
+    background-color: #b3f7ff;
 }
