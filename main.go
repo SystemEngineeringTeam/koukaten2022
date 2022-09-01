@@ -6,8 +6,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
+	//"github.com/go-sql-driver/mysql"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 // subject_data テーブル情報
@@ -61,14 +62,14 @@ func main() {
 		if value == "" {
 			search_result_1 := Search_result{Subject_name: "検索できませんでした", Class_room: " ", Day_time: " "}
 			search_result = append(search_result, search_result_1)
-		}else {
+		} else {
 
 			//返ってきた値をスライスの格納して整理
 			value_split := strings.Split(value, "/")
 
 			//末尾の要素は空白となるため削除
 			result := remove(value_split, (len(value_split) - 1))
-	
+
 			//整理したvalueを search_result(HTMLに出力させるスライス) に代入
 			for _, s := range result {
 				dr := strings.Split(s, " ")
@@ -99,7 +100,7 @@ func search(search string) string {
 
 	// db接続
 	db := sqlConnect()
-	defer db.Close()
+	//defer db.Close()
 
 	//mysql上のデータを変数に格納
 	result := []*Subject_data{}
@@ -126,15 +127,15 @@ func search(search string) string {
 
 // SQLConnect DB接続
 func sqlConnect() (database *gorm.DB) {
-	DBMS := "mysql"
+	//DBMS := "mysql"
 	USER := "koukaten2022"
 	PASS := "password"
 	PROTOCOL := "tcp(koukaten2022_DB:3306)"
 	DBNAME := "koukaten2022_DB"
 
-	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+	dsn := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 	count := 0
-	db, err := gorm.Open(DBMS, CONNECT)
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		for {
 			if err == nil {
@@ -148,7 +149,7 @@ func sqlConnect() (database *gorm.DB) {
 				fmt.Println("")
 				panic(err)
 			}
-			db, err = gorm.Open(DBMS, CONNECT)
+			db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 		}
 	}
 	return db
