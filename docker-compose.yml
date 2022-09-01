@@ -16,7 +16,6 @@ services:
     
 
   mysql:
-    image: mysql:8.0
     container_name: koukaten2022_DB
     build: ./Docker/mysql
     ports:
@@ -24,6 +23,7 @@ services:
     volumes:
       - ./Docker/mysql/init:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
+      # - ./mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: koukaten2022_DB
