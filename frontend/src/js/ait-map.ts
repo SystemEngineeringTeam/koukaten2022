@@ -1,6 +1,7 @@
 import * as L from 'leaflet';
 import registerRouteData from './ait-map/registerRouteData';
 import routeSerch from './ait-map/routeSerch';
+import setTimetable from './ait-map/setTimetable';
 
 const DISPLAY_RANGE: [[number, number], [number, number]] = [
     [35.18760, 137.103485],
@@ -36,6 +37,7 @@ const main = () => {
 
     // registerRouteData(map);
     // routeSerch(map);
+    setTimetable();
 };
 
 const creatMap = () => {
@@ -50,4 +52,4 @@ const creatMap = () => {
     return map;
 };
 
-main();
+window.onload = main;
