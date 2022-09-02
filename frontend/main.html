@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>愛工大に喧嘩売る蔵</title>
+        <link href="main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <h1>愛工大に喧嘩売る蔵</h1>
+
+            <div class="headerNavOuter">
+                <h1 class="siteIcon">
+                    <a href="#">
+                        <!-- <img src="https://drive.google.com/uc?export=view&id=1mu_N2iTeoQCeUiuWRgJ0xwjR4AZ-29bL" alt="ロゴ画像"> -->
+                    </a>
+                </h1>
+            
+                <!-- ナビゲーション -->
+                <nav class="headerNav">
+                    <ul class="navList">
+                        <li class="navItem">
+                            <a href="#">
+                                地図
+                            </a>
+                        </li>
+                        <li class="navItem">
+                            <a href="#">
+                                etc
+                            </a>
+                        </li>
+                        <li class="navItem">
+                            <a href="#">
+                                etc
+                            </a>
+                        </li>
+                        <li class="navItem">
+                            <a href="#">
+                                etc
+                            </a>
+                        </li>
+                        <li class="navItem">
+                            <a href="#">
+                                etc
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            
+                <!-- ハンバーガーボタン -->
+                <div class="hamburger_btn" id="js-hamburger">
+                    <span class="hamburger_line hamburger_line_1"></span>
+                    <span class="hamburger_line hamburger_line_2"></span>
+                    <span class="hamburger_line hamburger_line_3"></span>
+                </div>
+        
+                <!-- ハンバーガーメニュをクリックした後に現れる半透明の背景-->
+                <div class="black-bg" id="js-black-bg"></div>
+            </div>
+        </header>
+        <main>
+            <div class="box1">
+                <p>地図に飛ぶようにするで</p>
+            </div>
+            
+        </main>
+        <script>
+            function toggleNav() {
+                var body = document.body;
+                var hamburger = document.getElementById('js-hamburger');
+                var blackBg = document.getElementById('js-black-bg');
+
+                hamburger.addEventListener('click', function() {
+                    body.classList.toggle('nav-open');
+                });
+                blackBg.addEventListener('click', function() {
+                    body.classList.remove('nav-open');
+                });
+            }
+            toggleNav();
+        </script>
+    </body>
+</html>
