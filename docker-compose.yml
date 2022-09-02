@@ -20,7 +20,6 @@ services:
     
 
   mysql:
-    #image: mysql:8.0
     container_name: koukaten2022_DB
     build:
       context: ./backend/build/db
