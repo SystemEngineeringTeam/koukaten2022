@@ -13,8 +13,24 @@ body {
 }
 
 #today-timetable {
-    display: grid;
-    row-gap: 0.2em;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    column-gap: 10%;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#today-timetable::-webkit-scrollbar {
+    display: none;
+}
+
+.timetable-week {
+    width: 90%;
+    margin: 0 5%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
 }
 
 .timetable-row {
