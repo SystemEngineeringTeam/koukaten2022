@@ -1,14 +1,18 @@
 version: "3"
 services:
   go:
+    container_name: koukaten2022_go
     build:
-      context: .
+      context: ./backend/build/app
       dockerfile: Dockerfile
-    command: /bin/sh -c "go run main.go"
     stdin_open: true
     tty: true
+    env_file:
+      - ./backend/build/db/.env
     volumes:
-      - .:/app
+      - type: bind
+        source: .
+        target: /go/app
     ports:
       - 8080:8080
     depends_on:
@@ -16,21 +20,23 @@ services:
     
 
   mysql:
+    #image: mysql:8.0
     container_name: koukaten2022_DB
-    build: ./Docker/mysql
+    build:
+      context: ./backend/build/db
+      dockerfile: Dockerfile
     ports:
       - "3306:3306"
     volumes:
-      - ./Docker/mysql/init:/docker-entrypoint-initdb.d
-      - mysql-data:/var/lib/mysql
-      # - ./mysql/data:/var/lib/mysql
+      - ./backend/build/db/init:/docker-entrypoint-initdb.d
+      # - ./mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: koukaten2022_DB
-      MYSQL_USER: koukaten2022
-      MYSQL_PASSWORD: password
-      TZ: 'Asia/Tokyo'
+      # MYSQL_DATABASE: koukaten2022_DB
+      # MYSQL_USER: koukaten2022
+      # MYSQL_PASSWORD: password
+      # TZ: 'Asia/Tokyo'
 
-volumes:
-  mysql-data:
-    driver: local
+# volumes:
+#   data:
+#     driver: local
