@@ -99,10 +99,6 @@ func remove(slice []string, s int) []string {
 	return append(slice[:s], slice[s+1:]...)
 }
 
-func (p *Building) FirstById(id uint) (tx *gorm.DB) {
-	return DB.Where("id = ?", id).First(&p)
-}
-
 //mysql上に格納されたデータから値を返してもらうための関数
 func search(search string) string {
 

@@ -1,0 +1,47 @@
+package model_db
+
+import (
+	"fmt"
+)
+
+type User struct {
+	Id        int
+	User_name string `json:"user_name"`
+	Password  string `json:"password"`
+	Time      string `json:"time"`
+}
+
+type Schedule struct {
+	Id      int
+	User_id int    `json:"user_id"`
+	Ma_1    string `json:"ma_1"`
+	Ma_2    string `json:"ma_2"`
+	Ma_3    string `json:"ma_3"`
+	Ma_4    string `json:"ma_4"`
+	Ma_5    string `json:"ma_5"`
+	Ma_6    string `json:"ma_6"`
+	Tu_1    string `json:"tu_1"`
+	Tu_2    string `json:"tu_2"`
+	Tu_3    string `json:"tu_3"`
+	Tu_4    string `json:"tu_4"`
+	Tu_5    string `json:"tu_5"`
+	Tu_6    string `json:"tu_6"`
+	We_1    string `json:"we_1"`
+	We_2    string `json:"we_2"`
+	We_3    string `json:"we_3"`
+	We_4    string `json:"we_4"`
+	We_5    string `json:"we_5"`
+	We_6    string `json:"we_6"`
+	Th_1    string `json:"th_1"`
+	Th_2    string `json:"th_2"`
+	Th_3    string `json:"th_3"`
+	Th_4    string `json:"th_4"`
+	Th_5    string `json:"th_5"`
+	Th_6    string `json:"th_6"`
+	Fr_1    string `json:"fr_1"`
+	Fr_2    string `json:"fr_2"`
+	Fr_3    string `json:"fr_3"`
+	Fr_4    string `json:"fr_4"`
+	Fr_5    string `json:"fr_5"`
+	Fr_6    string `json:"fr_6"`
+}
