@@ -70,7 +70,7 @@ func main() {
 
 	fmt.Println(value)
 
-	//もしキーワードが何にもヒットしなかった場合適当な文字列をスライスに代入
+	//もしキーワードが何にもヒットしなかった場合適当な文字列をスライスに代入する
 	if value == "" {
 		search_result_1 := Search_result{Subject_name: "検索できませんでした", Class_room: " ", Day_time: " "}
 		search_result = append(search_result, search_result_1)
