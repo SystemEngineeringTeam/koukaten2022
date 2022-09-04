@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "downlevelIteration": true,
+        "strict": true,
+        "sourceMap": true,
+        "outDir": "./dist/js",
+        "sourceRoot": "./src",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+    }
+}

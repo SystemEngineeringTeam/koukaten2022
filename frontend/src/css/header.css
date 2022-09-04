@@ -1,0 +1,26 @@
+header {
+    height: 3rem;
+    background-color: #a7f9ff;
+    padding: 0 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 5rem;
+    column-gap: 1rem;
+}
+
+header>a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-item {
+    margin: auto;
+}
+
+.nav-name {
+    font-size: 0.3rem;
+}
+
+#title {
+    font-size: 2rem;
+}
