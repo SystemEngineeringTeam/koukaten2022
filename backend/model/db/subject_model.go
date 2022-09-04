@@ -5,30 +5,30 @@ import (
 )
 
 type Building struct {
-	Building_name string `json:"building_name"`
-	Latitude      string `json:"latitude"`
-	Longitude     string `json:"longitude"`
+	BuildingName string `json:"building_name"`
+	Latitude     string `json:"latitude"`
+	Longitude    string `json:"longitude"`
 }
 
 // Subject テーブル情報
 
 type Class_room struct {
-	Room_number   string `json:"room_number"`
-	Room_name     string `json:"room_name"`
-	Building_name string `json:"building_name"`
-	Floor         int    `json:"floor"`
+	Roomnumber   string `json:"room_number"`
+	RoomName     string `json:"room_name"`
+	BuildingName string `json:"building_name"`
+	Floor        int    `json:"floor"`
 }
 
 type Subject struct {
 	Id             int
-	Folder_name    string `json:"folder_name"`
-	Subject_code   string `json:"subject_code"`
-	Subject_name   string `json:"subject_name"`
+	FolderName     string `json:"folder_name"`
+	SubjectNode    string `json:"subject_code"`
+	SubjectName    string `json:"subject_name"`
 	Grade          string `json:"grade"`
-	Class_code     string `json:"class_code"`
-	Class_room     string `json:"class_room"`
+	ClassNode      string `json:"class_code"`
+	ClassRoom      string `json:"class_room"`
 	Semester       string `json:"semester"`
-	Day_time       string `json:"day_time"`
+	DayTime        string `json:"day_time"`
 	Classification string `json:"classification"`
 	Credit         int    `json:"credit"`
 }
