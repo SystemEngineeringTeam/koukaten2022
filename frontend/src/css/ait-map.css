@@ -14,8 +14,9 @@ body {
 
 #today-timetable {
     display: flex;
+    margin-top: 1em;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow: scroll scroll;
     column-gap: 10%;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;

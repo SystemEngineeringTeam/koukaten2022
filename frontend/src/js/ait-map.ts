@@ -33,7 +33,7 @@ const main = () => {
         attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.polyline(EXAMPLE_ROUTE, { color: 'green', opacity: 0.5 }).addTo(map);
+    L.polyline(EXAMPLE_ROUTE, { color: 'red', opacity: 0.5 }).addTo(map);
 
     // registerRouteData(map);
     // routeSerch(map);
