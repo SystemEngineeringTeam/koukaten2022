@@ -1,7 +1,7 @@
 version: "3"
 services:
   go:
-    container_name: koukaten2022_go
+    container_name: copy_main
     build:
       context: ./backend/build/app
       dockerfile: Dockerfile

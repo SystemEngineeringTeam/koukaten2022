@@ -1,4 +1,4 @@
-package model_db
+package model_student
 
 import (
 	"fmt"

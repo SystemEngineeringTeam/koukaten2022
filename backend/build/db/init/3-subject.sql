@@ -12,7 +12,8 @@ day_time VARCHAR( 100 ),
 classification VARCHAR( 100 ),
 credit INT(11),
 primary key (id),
-foreign key (class_room) references data_sets.class_rooms(room_number)
+foreign key (class_room) 
+references data_sets.class_rooms(room_number)
 ) ENGINE = InnoDB;
 
 /* INSERT QUERY */
