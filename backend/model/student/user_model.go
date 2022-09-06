@@ -1,5 +1,8 @@
 package model_student
 
+import "strconv"
+
+//User
 type User struct {
 	Id        int        `gorm:"primaryKey:id"`
 	Schedules []Schedule `gorm:"foreignKey:user_id"`
@@ -9,31 +12,51 @@ type User struct {
 }
 
 func GetUserAll() []*User {
-	result := []*User{}
-	db.Find(&result)
+	result := CombineUserWithSchedule()
 	return result
 }
 
 func GetID(id string) []*User {
-	result := []*User{}
-	db.Where("id LIKE ?", "%"+id+"%").Find(&result)
+	result := CombineUserWithSchedule()
+
+	for _, r := range result {
+
+		var s string
+		s = strconv.Itoa(r.Id)
+
+		if s != id {
+			r = result[len(result)-1]
+		}
+	}
 	return result
 }
 
 func GetUserName(user_name string) []*User {
-	result := []*User{}
-	db.Where("id LIKE ?", "%"+user_name+"%").Find(&result)
+	result := CombineUserWithSchedule()
+	for _, r := range result {
+		if r.UserName != user_name {
+			r = result[len(result)-1]
+		}
+	}
 	return result
 }
 
 func GetPassword(password string) []*User {
-	result := []*User{}
-	db.Where("id LIKE ?", "%"+password+"%").Find(&result)
+	result := CombineUserWithSchedule()
+	for _, r := range result {
+		if r.UserName != password {
+			r = result[len(result)-1]
+		}
+	}
 	return result
 }
 
 func GetTime(time string) []*User {
-	result := []*User{}
-	db.Where("id LIKE ?", "%"+time+"%").Find(&result)
+	result := CombineUserWithSchedule()
+	for _, r := range result {
+		if r.UserName != time {
+			r = result[len(result)-1]
+		}
+	}
 	return result
 }
