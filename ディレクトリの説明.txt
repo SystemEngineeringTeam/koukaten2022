@@ -1,0 +1,11 @@
+backend/build　goとmysqlの初期設定に関するファイル
+
+backend/cmd　goのメイン関数(動作確認はここでやってください)
+
+backend/controller　Webサーバーに関する関数、メソッドを記述(今は何もないけど)
+
+backend/data_sets　csvファイル置き場(?)
+
+backend/model　データベースをなんやかんやするファイル(golang)
+
+backend/view　htmlファイル(今は使ってない)
