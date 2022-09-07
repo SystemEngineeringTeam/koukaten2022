@@ -9,9 +9,12 @@ type ClassRoom struct {
 	Floor        string
 }
 
-func GetClassRoomAll() []*ClassRoom {
-	result := []*ClassRoom{}
+func GetClassRoomAll() []*Building {
+	result := []*Building{}
+	class_room := []*ClassRoom{}
+	db.Find(&class_room)
 	db.Find(&result)
+	result[0].ClassRooms = append(result[0].ClassRooms, *class_room[0])
 	return result
 }
 
@@ -30,11 +33,5 @@ func GetRoomName(room_name string) []*ClassRoom {
 func GetClassRoomBuildingName(building_name string) []*ClassRoom {
 	result := []*ClassRoom{}
 	db.Where("building_name LIKE ?", "%"+building_name+"%").Find(&result)
-	return result
-}
-
-func GetFloor(floor string) []*ClassRoom {
-	result := []*ClassRoom{}
-	db.Where("floor LIKE ?", "%"+floor+"%").Find(&result)
 	return result
 }

@@ -9,9 +9,8 @@ type Building struct {
 }
 
 func GetBuildingAll() []*Building {
-	//class_room := GetClassRoomAll()
+
 	result := []*Building{}
-	//result[0].ClassRooms = class_room
 	db.Find(&result)
 	return result
 }
