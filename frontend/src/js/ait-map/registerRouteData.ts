@@ -20,8 +20,12 @@ const registerRouteData = (map: L.Map) => {
     };
 
     outputBtnElm.onclick = (e) => {
-        outputField.innerText = RegisterMarker.toString();
-    }
+        const blob = new Blob([RegisterMarker.toString()], { type: 'text/json' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'routeData.json';
+        link.click();
+    };
 };
 
 export default registerRouteData;

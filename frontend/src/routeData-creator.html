@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/routeData-creator.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <title>AIT MAP</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="main-map"></div>
+    </div>
+    <div id="for-register-data">
+        <div class="wrapper">
+            <label><input type="radio" name="register-mode" value="0" checked>ポイントの追加</label>
+            <label><input type="radio" name="register-mode" value="1">ルートの追加</label>
+            <label><input type="radio" name="register-mode" value="2">ポイント・ルートの削除</label>
+        </div>
+        <div class="wrapper">
+            <label><input type="checkbox" id="auto-connect">連続して接続</label>
+        </div>
+        <div class="wrapper">
+            <label>表示名<input type="text" id="display-name"></label>
+        </div>
+        <div class="wrapper">
+            <input type="button" value="出力" id="output-btn">
+        </div>
+        <div id="output" style="background: rgb(173, 173, 173)"></div>
+    </div>
+</body>
+
+</html>
