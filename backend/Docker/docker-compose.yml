@@ -23,17 +23,14 @@ services:
       - ./neo4j/data:/data
       - ./neo4j/logs:/logs
       - ./neo4j/conf:/conf
-      - ./neo4j/import:/imports
+      - ./neo4j/import:/import
       - ./neo4j/script:/script
     environment:
     - NEO4J_AUTH=neo4j/password
 
-    - NEO4J_dbms_memory_heap_max__size=4G
-    - NEO4J_dbms_memory_heap_initial__size=4G
-    - NEO4J_dbms_memory_pagecache_size=454900k
-    - NEO4J_dbms_tx__state_max__off__heap__memory=2500m
-    - NEO4JLABS_PLUGINS=["apoc"]
-    - NEO4J_apoc_import_file_use__neo4j__config=true
-    - NEO4J_apoc_import_file_enabled=true
+    - NEO4J_dbms_memory_heap_max__size=1G
+    - NEO4J_dbms_memory_heap_initial__size=1G
+    - NEO4J_dbms_memory_pagecache_size=113725k
+    - NEO4J_dbms_memory.off_heap.max_size=625m
 
-    - EXTENSION_SCRIPT=/script/import_csv.sh
+    - EXTENSION_SCRIPT=/script/import_data.sh
