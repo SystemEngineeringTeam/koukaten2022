@@ -8,41 +8,28 @@ type Building struct {
 	Longitude    string
 }
 
-//Buildingの全てのデータを取得
 func GetBuildingAll() []*Building {
-	result := CombineBuildingWithClassRoom()
+	//class_room := GetClassRoomAll()
+	result := []*Building{}
+	//result[0].ClassRooms = class_room
+	db.Find(&result)
 	return result
 }
 
-//建物名を検索してデータを取得
 func GetBuildingBuildingName(building_name string) []*Building {
-	result := CombineBuildingWithClassRoom()
-	for _, r := range result {
-		if r.BuildingName != building_name {
-			r = result[len(result)-1]
-		}
-	}
+	result := []*Building{}
+	db.Where("building_name LIKE ?", "%"+building_name+"%").Find(&result)
 	return result
 }
 
-//経度を検索してデータを取得
 func GetLatitude(latitude string) []*Building {
-	result := CombineBuildingWithClassRoom()
-	for _, r := range result {
-		if r.BuildingName != latitude {
-			r = result[len(result)-1]
-		}
-	}
+	result := []*Building{}
+	db.Where("latitude LIKE ?", "%"+latitude+"%").Find(&result)
 	return result
 }
 
-//緯度を検索してデータを取得
 func GetLongitude(longitude string) []*Building {
-	result := CombineBuildingWithClassRoom()
-	for _, r := range result {
-		if r.BuildingName != longitude {
-			r = result[len(result)-1]
-		}
-	}
+	result := []*Building{}
+	db.Where("longitude LIKE ?", "%"+longitude+"%").Find(&result)
 	return result
 }
