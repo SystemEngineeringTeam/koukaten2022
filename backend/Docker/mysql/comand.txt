@@ -1,7 +1,7 @@
 (docker-compose.ymlのある場所で)
 docker compose build 
 docker compose up　-d
-docker exec -it koukaten2022_DB
+docker exec -it koukaten2022-_DB
 (コンテナにログイン)
 mysql -u root -p
 (パスワード　＝　admin)
