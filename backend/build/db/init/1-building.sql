@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS data_sets.buildings(
 building_name VARCHAR( 100 ),
 latitude DECIMAL( 10 , 2 ),
 longitude DECIMAL( 10 , 2 ),
--- CONSTRAINT buildings_buildig_name PRIMARY KEY ( building_name )
 primary key (building_name)
 ) ENGINE = InnoDB; 
 
