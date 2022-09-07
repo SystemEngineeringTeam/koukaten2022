@@ -11,7 +11,7 @@ services:
       - ./docker/build/db/.env
     volumes:
       - type: bind
-        source: .
+        source: ./go
         target: /go/app
     ports:
       - 8080:8080

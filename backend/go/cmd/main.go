@@ -1,7 +1,7 @@
 package main
 
 import (
-	DataSets "backend/go/model/data_sets"
+	DataSets "go/model/data_sets"
 	//Student "copy_main/backend/model/student"
 	"fmt"
 )
