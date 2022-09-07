@@ -11,10 +11,7 @@ type ClassRoom struct {
 
 func GetClassRoomAll() []*Building {
 	result := []*Building{}
-	class_room := []*ClassRoom{}
-	db.Find(&class_room)
 	db.Find(&result)
-	result[0].ClassRooms = append(result[0].ClassRooms, *class_room[0])
 	return result
 }
 

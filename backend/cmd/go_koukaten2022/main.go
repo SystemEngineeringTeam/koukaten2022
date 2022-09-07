@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-//動作確認
 func main() {
 
 	var subject_name string = "館"

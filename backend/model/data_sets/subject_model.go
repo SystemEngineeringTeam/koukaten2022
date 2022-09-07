@@ -4,10 +4,10 @@ package model_data_sets
 type Subject struct {
 	ID             int
 	FolderName     string
-	SubjectCode    string
+	SubjectNode    string
 	SubjectName    string
 	Grade          string
-	ClassCode      string
+	ClassNode      string
 	ClassRoom      string
 	Semester       string
 	DayTime        string
@@ -15,66 +15,67 @@ type Subject struct {
 	Credit         int
 }
 
-func GetSubjectAll() []*Subject {
-	result := []*Subject{}
+func GetSubjectAll() []*Building {
+	result := []*Building{}
 	db.Find(&result)
 	return result
 }
 
-func GetID(room_number string) []*Subject {
-	result := []*Subject{}
+func GetID(room_number string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("id LIKE ?", "%"+room_number+"%").Find(&result)
 	return result
 }
 
-func GetSubjectCode(subject_code string) []*Subject {
-	result := []*Subject{}
+func GetSubjectCode(subject_code string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("subject_code LIKE ?", "%"+subject_code+"%").Find(&result)
 	return result
 }
 
-func GetSubjectName(subject_name string) []*Subject {
-	result := []*Subject{}
+func GetSubjectName(subject_name string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("subject_name LIKE ?", "%"+subject_name+"%").Find(&result)
 	return result
 }
-func GetGrade(grade string) []*Subject {
-	result := []*Subject{}
+func GetGrade(grade string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("grade LIKE ?", "%"+grade+"%").Find(&result)
 	return result
 }
 
-func GetClassCode(class_code string) []*Subject {
-	result := []*Subject{}
+func GetClassCode(class_code string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("class_code LIKE ?", "%"+class_code+"%").Find(&result)
 	return result
 }
 
-func GetSubject(class_room string) []*Subject {
+func GetClassRoom(class_room string) []*ClassRoom {
 
-	result := []*Subject{}
+	result := []*ClassRoom{}
 	db.Where("class_room LIKE ?", "%"+class_room+"%").Find(&result)
 	return result
 }
-func GetSemester(semester string) []*Subject {
-	result := []*Subject{}
+func GetSemester(semester string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("semester LIKE ?", "%"+semester+"%").Find(&result)
 	return result
 }
 
-func GetDayTime(day_time string) []*Subject {
-	result := []*Subject{}
+func GetDayTime(day_time string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("day_time LIKE ?", "%"+day_time+"%").Find(&result)
 	return result
 }
-func GetClassification(classification string) []*Subject {
-	result := []*Subject{}
+func GetClassification(classification string) []*ClassRoom {
+	result := []*ClassRoom{}
 	db.Where("classification LIKE ?", "%"+classification+"%").Find(&result)
 	return result
 }
 
-func GetCredit(credit string) []*Subject {
-	result := []*Subject{}
+func GetCredit(credit string) []*ClassRoom {
+
+	result := []*ClassRoom{}
 	db.Where("credit LIKE ?", "%"+credit+"%").Find(&result)
 	return result
 }
