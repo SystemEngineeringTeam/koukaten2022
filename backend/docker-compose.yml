@@ -3,12 +3,12 @@ services:
   go:
     container_name: koukaten2022_GO
     build:
-      context: ./docker/build/app
+      context: ./docker/app
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
     env_file:
-      - ./docker/build/app/.env
+      - ./Docker/app/.env
     volumes:
       - type: bind
         source: ./go
@@ -22,11 +22,11 @@ services:
   mysql:
     container_name: koukaten2022_DB
     build:
-      context: ./docker/build/mysql
+      context: ./docker/mysql
       dockerfile: Dockerfile
     ports:
       - "3306:3306"
     volumes:
-      - ./docker/build/mysql/init:/docker-entrypoint-initdb.d
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin
