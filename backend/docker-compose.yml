@@ -8,7 +8,7 @@ services:
     stdin_open: true
     tty: true
     env_file:
-      - ./docker/build/db/.env
+      - ./docker/build/app/.env
     volumes:
       - type: bind
         source: ./go
@@ -22,11 +22,11 @@ services:
   mysql:
     container_name: koukaten2022_DB
     build:
-      context: ./docker/build/db
+      context: ./docker/build/mysql
       dockerfile: Dockerfile
     ports:
       - "3306:3306"
     volumes:
-      - ./docker/build/db/init:/docker-entrypoint-initdb.d
+      - ./docker/build/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin

@@ -4,11 +4,6 @@ CREATE TABLE IF NOT EXISTS data_sets.class_rooms(
     room_name VARCHAR(100),
     building_name VARCHAR(100),
     floor VARCHAR(11),
-    -- CONSTRAINT class_rooms_room_name PRIMARY KEY ( room_name ),
-    -- CONSTRAINT class_rooms_building_name_buildings_building_name_foreign FOREIGN KEY ( building_name )
-    -- REFERENCES buildings( building_name )
-    -- ON UPDATE NO ACTION
-    -- ON DELETE NO ACTION
     primary key (room_number),
     foreign key (building_name) references data_sets.buildings(building_name)
 ) ENGINE = InnoDB;
