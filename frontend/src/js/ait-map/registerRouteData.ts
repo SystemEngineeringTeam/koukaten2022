@@ -39,7 +39,7 @@ const registerRouteData = (map: L.Map) => {
         if (typeof reader.result !== 'string') return;
         const data = JSON.parse(reader.result);
 
-        const points = new Map<string, PointData>();
+        const points = new Map<string, RegisterMarker>();
         if (!Array.isArray(data.points) || !Array.isArray(data.paths)) return;
         for (const inputPoint of data.points) {
             if (inputPoint.id === undefined || inputPoint.latlng === undefined) continue;
@@ -50,14 +50,14 @@ const registerRouteData = (map: L.Map) => {
                 latlng: inputPoint.latlng
             };
             const registerMarker = new RegisterMarker(map, pointData);
-            points.set(pointData.id, pointData);
+            points.set(pointData.id, registerMarker);
         }
         for (const inputPath of data.paths) {
             if (typeof inputPath.from !== 'string' || typeof inputPath.to !== 'string') continue;
             const fromPoint = points.get(inputPath.from);
             const toPoint = points.get(inputPath.to);
             if (fromPoint === undefined || toPoint === undefined) continue;
-            L.polyline([fromPoint.latlng, toPoint.latlng], { color: 'red', opacity: 0.5 }).addTo(map);
+            fromPoint.connectTo(toPoint)?.addTo(map);
         }
     };
 

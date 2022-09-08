@@ -40,7 +40,6 @@ class RegisterMarker {
             const settings = getSettings();
             if (settings.mode === 1 && RegisterMarker.selected) {
                 const line = this.connectTo(RegisterMarker.selected);
-                console.log(line);
                 line?.addTo(map);
             } else if (settings.mode === 2) {
                 this.select(false);
