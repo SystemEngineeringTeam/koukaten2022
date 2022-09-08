@@ -19,8 +19,8 @@ echo "delete database finished."
 
 # CSVインポート
 echo "importing csv started."
-/var/lib/neo4j/bin/neo4j-admin import \
-    --id-type=INTEGER \
-    --nodes="/import/building.csv,/import/point.csv" \
-    --relationships="/import/route.csv
+neo4j-admin import \
+--nodes /import/building.csv \
+--nodes /import/point.csv \
+--relationships /import/route.csv
 echo "importing csv finished."

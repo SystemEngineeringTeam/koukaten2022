@@ -1,4 +1,4 @@
-﻿PointID:ID,point_name,lat:float,lng:float,LABEL
+﻿PointID:ID,point_name:string,lat:double,lng:double,:LABEL
 a,1,35.23482507,137.0693223,Point
 b,2,35.23482777,137.0694412,Point
 c,3,35.23481878,137.0695491,Point
