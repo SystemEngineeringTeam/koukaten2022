@@ -1,3 +1,4 @@
+
 header {
     height: 3rem;
     background-color: #a7f9ff;
@@ -10,16 +11,38 @@ header {
 header>a {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: #000;
+
 }
+
+#headerimg{
+    height: 80px;
+    width: 80px;
+    vertical-align: top;
+}
+
 
 .nav-item {
     margin: auto;
+    /* 阪口 */
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    display:flex;
 }
 
 .nav-name {
     font-size: 0.3rem;
 }
+
+.search-sub{
+    text-decoration: none;
+    color: #000;
+    padding-left:30px;
+}
+
 
 #title {
     font-size: 2rem;
