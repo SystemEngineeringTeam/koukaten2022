@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: #fff;
 }
 
 #main {
@@ -10,6 +11,7 @@ body {
 
 #main-map {
     height: 50vh;
+    z-index: 2;
 }
 
 #today-timetable {
@@ -43,58 +45,23 @@ body {
 
 .timetable-time {
     text-align: center;
-    background-color: #b3f7ff;
+    background-color: #fff;
     width: 100%;
 }
 
 .timetable-classname {
-    background-color: #b3f7ff;
+    background-color: #fff;
 }
 
 /* ぺんぎん */
-.app {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.timetable{
+    padding: 0.5em 1em;
+    background: -moz-linear-gradient(#2ca9e1, #007bbb);
+    background: -webkit-linear-gradient(#2ca9e1, #007bbb);
+    background: linear-gradient(to right, #2ca9e1, #007bbb);
+    color: #000;
 }
-
-.header {
-    height: 48px;
-    background-color: lightcyan;
-    box-sizing: border-box;
-    border: 8px solid blue;
+.timetable p {
+    margin: 0; 
+    padding: 0;
 }
-
-.main {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-  }
-  
-  .sidebar {
-    width: 96px;
-    background-color: moccasin;
-    box-sizing: border-box;
-    border: 8px solid chocolate;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  .flex-content {
-    flex-grow: 1;
-    background-color: palegoldenrod;
-    box-sizing: border-box;
-    border: 8px solid green;
-  }
-  
-  .fixed-content {
-    height: 128px;
-    background-color: thistle;
-    box-sizing: border-box;
-    border: 8px solid darkmagenta;
-  }
