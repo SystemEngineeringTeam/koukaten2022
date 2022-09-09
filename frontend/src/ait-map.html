@@ -21,10 +21,12 @@
 
 <body>
     <header>
-        <img src="https://cdn.icon-icons.com/icons2/1559/PNG/128/3440906-direction-location-map-marker-navigation-pin_107531.png" id="headerimg">
-        <a href="ait-map.html" id="title">
-            愛工大MAP
-        </a>
+        <ul>
+            <li><img src="https://cdn.icon-icons.com/icons2/1559/PNG/128/3440906-direction-location-map-marker-navigation-pin_107531.png" id="headerimg"></li>
+            <li><a href="ait-map.html" id="title" class="title">愛工大MAP</a></li>
+        </ul>
+        
+        
 
             <!-- ------追加(阪口)------ -->
             <!-- ハンバーガーメニュー部分 -->
@@ -35,24 +37,26 @@
                 <div class="menu-content">
                     <ul>
                         <li>
-                            <a href="#">メニューリンク1</a>
+                            <a href="register-timetable.html" class="nav-item">時間割登録</a>
                         </li>
                         <li>
-                            <a href="#">メニューリンク2</a>
-                        </li>
-                        <li>
-                            <a href="#">メニューリンク3</a>
+                            <a href="searchSubject.html" class="search-sub" >
+                                検索
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <!--ここまでメニュー-->
             </div>
-    </header>
 
+            <!-- ------追加ここまで(阪口)------ -->
+    </header>
     <div id="main">
         <div id="main-map"></div>
 
-        <div class="timetable">        
+        <div class="timetable">
+
+        
             <div id="today-timetable">
                 <div class="timetable-week" data-day="mon">
                     <div class="timetable-row">
