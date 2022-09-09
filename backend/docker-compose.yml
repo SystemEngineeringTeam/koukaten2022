@@ -1,0 +1,55 @@
+version: "3"
+services:
+  go:
+    container_name: koukaten2022_GO
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    env_file:
+      - ./Docker/app/.env
+    volumes:
+      - type: bind
+        source: ./go
+        target: /go/app
+    ports:
+      - 8080:8080
+    depends_on:
+      - "mysql"
+    
+
+  mysql:
+    container_name: koukaten2022_DB
+    build:
+      context: ./docker/mysql
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
+  neo4j:
+    container_name: koukaten2022_neo4j
+    build: ./docker/neo4j
+    image: koukaten_neo4j
+    ports:
+      - "57474:7474"
+      - "57687:7687"
+    volumes:
+      - ./docker/neo4j/data:/data
+      - ./docker/neo4j/logs:/logs
+      - ./docker/neo4j/conf:/conf
+      - ./docker/neo4j/import:/import
+      - ./docker/neo4j/script:/script
+    environment:
+    - NEO4J_AUTH=neo4j/password
+
+    - NEO4J_dbms_memory_heap_max__size=1G
+    - NEO4J_dbms_memory_heap_initial__size=1G
+    - NEO4J_dbms_memory_pagecache_size=113725k
+    - NEO4J_dbms_memory.off_heap.max_size=625m
+
+    - EXTENSION_SCRIPT=/script/import_data.sh
