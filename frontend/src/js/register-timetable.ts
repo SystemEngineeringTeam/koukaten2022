@@ -4,6 +4,7 @@ import { HasLessonDay, TimetableData } from "./ait-map/type";
 const popupMenu = (target: HTMLElement) => {
     const { day, lecture } = getDataset(target);
 
+
     // テストとして一旦prompt
     const name = window.prompt('授業の名前');
     if (name === null) return;
@@ -28,3 +29,6 @@ window.onload = () => {
         cell.onclick = popupMenu.bind(null, cell);
     })
 };
+
+
+

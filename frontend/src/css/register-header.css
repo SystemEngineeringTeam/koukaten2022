@@ -1,4 +1,3 @@
-
 header {
     height: 6rem;
     background-color: #fff;
@@ -9,10 +8,6 @@ header {
     border-bottom: 1rem solid;
     border: #000;
 }
-
-/* ul{
-    float: left;
-} */
 
 .title{
     font-size: 30px;
@@ -61,11 +56,6 @@ div.center{
     text-align:center
 }
 
-/* #headerimg{
-    border-bottom: 3px double #ccc;
-    max-width: 500px;
-} */
-
 .title{
     display: block;
     text-decoration: none;
@@ -73,6 +63,7 @@ div.center{
     color: black;
     position: absolute; 
     top: 30px;
+    left: 135px;
 }
 
 .header-border{
