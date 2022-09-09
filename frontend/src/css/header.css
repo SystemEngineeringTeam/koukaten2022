@@ -61,11 +61,21 @@ div.center{
     text-align:center
 }
 
-#headerimg{
+/* #headerimg{
     border-bottom: 3px double #ccc;
-    border-width: 100%;
+    max-width: 500px;
+} */
+
+.title{
+    display: block;
+    text-decoration: none;
+    font-size: 100px;
+    color: black;
+    position: absolute; 
+    top: 30px;
 }
 
-/* .title{
-    border-top: 3px double #ccc;
-} */
+.header-border{
+    width: 100%;
+    border-bottom: 3px solid #2ca9e1;
+}

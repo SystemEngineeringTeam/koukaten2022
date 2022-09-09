@@ -191,7 +191,7 @@
   top: 0;
   left: 100%;/*leftの値を変更してメニューを画面外へ*/
   z-index: 80;
-  background-color: #3584bb;
+  background-color: #2ca9e1;
   transition: all 0.5s;/*アニメーション設定*/
 }
 .menu-content ul {
@@ -203,7 +203,8 @@
 }
 .menu-content ul li a {
   display: block;
-  width: 100%;
+  /* width: 100%; */
+  width: 100px;
   font-size: 15px;
   box-sizing: border-box;
   color:#ffffff;
@@ -244,6 +245,9 @@
   display: none;
 }
 
+ul{
+  display: flex;
+}
 
 
   
