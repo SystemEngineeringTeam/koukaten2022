@@ -1,7 +1,7 @@
 import * as L from 'leaflet';
 import RegisterMarker from './RegisterMarker';
 import { displayNameElm, outputBtnElm, getSettings, inputBtnElm } from './RegisterMenu';
-import { PointData } from './type';
+import { RouteData } from './type';
 
 const registerRouteData = (map: L.Map) => {
     map.on('click', (e) => {
@@ -37,25 +37,17 @@ const registerRouteData = (map: L.Map) => {
             reader.readAsText(file, 'UTF-8');
         });
         if (typeof reader.result !== 'string') return;
-        const data = JSON.parse(reader.result);
+        const data = convertToPointData(reader.result);
 
         const points = new Map<string, RegisterMarker>();
-        if (!Array.isArray(data.points) || !Array.isArray(data.paths)) return;
-        for (const inputPoint of data.points) {
-            if (inputPoint.id === undefined || inputPoint.latlng === undefined) continue;
-            if (!Number.isFinite(inputPoint.latlng.lat) || !Number.isFinite(inputPoint.latlng.lng)) return;
-            const pointData = {
-                id: inputPoint.id,
-                jp: inputPoint.jp,
-                latlng: inputPoint.latlng
-            };
-            const registerMarker = new RegisterMarker(map, pointData);
-            points.set(pointData.id, registerMarker);
+        for (const point of data.points) {
+            const registerMarker = new RegisterMarker(map, point);
+            points.set(point.id, registerMarker);
         }
-        for (const inputPath of data.paths) {
-            if (typeof inputPath.from !== 'string' || typeof inputPath.to !== 'string') continue;
-            const fromPoint = points.get(inputPath.from);
-            const toPoint = points.get(inputPath.to);
+
+        for (const path of data.paths) {
+            const fromPoint = points.get(path.from);
+            const toPoint = points.get(path.to);
             if (fromPoint === undefined || toPoint === undefined) continue;
             fromPoint.connectTo(toPoint)?.addTo(map);
         }
@@ -68,6 +60,33 @@ const registerRouteData = (map: L.Map) => {
         link.download = 'routeData.json';
         link.click();
     };
+};
+
+const convertToPointData = (string: string) => {
+    const result: RouteData = { points: [], paths: [] };
+    const data = JSON.parse(string);
+
+    if (!Array.isArray(data.points) || !Array.isArray(data.paths)) return result;
+    for (const inputPoint of data.points) {
+        if (inputPoint.id === undefined || inputPoint.latlng === undefined) continue;
+        if (!Number.isFinite(inputPoint.latlng.lat) || !Number.isFinite(inputPoint.latlng.lng)) continue;
+        result.points.push({
+            id: inputPoint.id,
+            jp: inputPoint.jp,
+            latlng: inputPoint.latlng
+        });
+    }
+
+    for (const inputPath of data.paths) {
+        if (typeof inputPath.from !== 'string' || typeof inputPath.to !== 'string' || !Number.isInteger(inputPath.distance)) continue;
+        result.paths.push({
+            from: inputPath.from,
+            to: inputPath.to,
+            distance: inputPath.distance
+        })
+    }
+
+    return result;
 };
 
 export default registerRouteData;

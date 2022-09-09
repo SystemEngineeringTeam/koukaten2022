@@ -39,19 +39,10 @@ class RegisterMarker {
         this.marker.on('click', (e) => {
             const settings = getSettings();
             if (settings.mode === 1 && RegisterMarker.selected) {
-                const line = this.connectTo(RegisterMarker.selected);
-                line?.addTo(map);
+                this.connectTo(RegisterMarker.selected)?.addTo(map);
             } else if (settings.mode === 2) {
                 this.select(false);
-                for (const path of this.reach.values()) {
-                    for (const point of path.via) {
-                        point.reach.delete(this.id);
-                    }
-                    path.line.remove();
-                    PATH_DB.delete(path.id);
-                }
-                this.marker.remove();
-                POINT_DB.delete(this.id);
+                this.deleat();
                 return;
             }
 
@@ -68,8 +59,8 @@ class RegisterMarker {
     }
 
     setPoint (point: Partial<PointData>) {
-        this.id = point.id ?? this.id;
-        this.jp = point.jp ?? this.jp;
+        if (point.id) this.id = point.id;
+        if (point.jp) this.jp = point.jp;
         const latlng = this.marker.getLatLng();
         if (point.latlng !== undefined && !latlng.equals(point.latlng)) {
             this.marker.setLatLng(point.latlng);
@@ -96,9 +87,14 @@ class RegisterMarker {
         return path.line;
     }
 
+    deleat () {
+        for (const [key, path] of this.reach) path.deleat();
+        this.marker.remove();
+        POINT_DB.delete(this.id);
+    }
+
     static getId () {
-        const now = new Date();
-        return Number("" + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds() + now.getMilliseconds()).toString(36);
+        return Date.now().toString(36);
     }
 
     static toString() {
@@ -110,12 +106,14 @@ class RegisterMarker {
 }
 
 class Path {
-    via: RegisterMarker[];
+    from: RegisterMarker;
+    to: RegisterMarker;
     line: L.Polyline;
     id: string;
-    constructor (...via: RegisterMarker[]) {
+    constructor (from: RegisterMarker, to: RegisterMarker) {
         this.id = Path.getId();
-        this.via = via;
+        this.from = from;
+        this.to = to;
         this.line = L.polyline(
             [],
             { color: 'green', opacity: 0.5 }
@@ -123,21 +121,29 @@ class Path {
         this.update();
     }
 
-    setVia (...via: RegisterMarker[]) {
-        this.via = via;
+    setVia (from: RegisterMarker | undefined, to: RegisterMarker | undefined) {
+        if (from !== undefined) this.from = from;
+        if (to !== undefined) this.to = to;
     }
 
     update () {
         PATH_DB.set(this.id, {
-            from: this.via[0].id,
-            to: this.via[1].id,
+            from: this.from.id,
+            to: this.to.id,
             distance: this.getDistance()
         });
         this.line.setLatLngs(this.getLatlngs());
     }
 
+    deleat () {
+        this.from.reach.delete(this.to.id);
+        this.to.reach.delete(this.from.id);
+        this.line.remove();
+        PATH_DB.delete(this.id);
+    }
+
     getLatlngs () {
-        return this.via.map(v => v.marker.getLatLng());
+        return [this.from.marker.getLatLng(), this.to.marker.getLatLng()];
     }
 
     getDistance () {
@@ -155,7 +161,7 @@ class Path {
 
     static getId () {
         const now = new Date();
-        return Number("" + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds() + now.getMilliseconds()).toString(36);
+        return Date.now().toString(36);
     }
 }
 
