@@ -80,6 +80,7 @@ class RegisterMarker {
     connectTo (to: RegisterMarker) {
         const from: RegisterMarker = this;
         if (from.reach.has(to.id)) return;
+        if (this.id === to.id) return;
         const path = new Path(from, to);
 
         from.reach.set(to.id, path);
