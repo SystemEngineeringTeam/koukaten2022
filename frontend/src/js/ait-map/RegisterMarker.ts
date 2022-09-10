@@ -118,6 +118,11 @@ class Path {
             [],
             { color: 'green', opacity: 0.5 }
         );
+        this.line.on('click', () => {
+            if (getSettings().mode === 2) {
+                this.deleat();
+            }
+        });
         this.update();
     }
 
