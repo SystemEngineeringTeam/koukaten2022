@@ -162,7 +162,7 @@ class Path {
             }
             distance += Math.sqrt((prev.lat - curr.lat) ** 2 + (prev.lng - curr.lng) ** 2);
         }
-        return distance;
+        return distance * 1e5 | 0;
     }
 
     static getId () {
