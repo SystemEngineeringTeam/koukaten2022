@@ -99,10 +99,20 @@ class RegisterMarker {
     }
 
     static toString() {
-        return JSON.stringify({
-            points: [...POINT_DB.values()],
-            paths: [...PATH_DB.values()]
-        });
+        const points = [...POINT_DB.values()];
+        const paths = [...PATH_DB.values()];
+        const ids = new Id();
+
+        for (const point of points) {
+            point.id = ids.get(point.id);
+        }
+
+        for (const path of paths) {
+            path.from = ids.get(path.from);
+            path.to = ids.get(path.to);
+        }
+
+        return JSON.stringify({ points, paths });
     }
 }
 
@@ -168,6 +178,26 @@ class Path {
     static getId () {
         const now = new Date();
         return Date.now().toString(36);
+    }
+}
+
+class Id {
+    table: Map<string, string>;
+    generator: (index: number) => string;
+
+    constructor (generator: (index: number) => string = String) {
+        this.table = new Map();
+        this.generator = generator;
+    }
+
+    get (id: string): string {
+        if (this.table.has(id)) {
+            return this.table.get(id)!;
+        } else {
+            const generated = this.generator(this.table.size);
+            this.table.set(id, generated);
+            return generated;
+        }
     }
 }
 
