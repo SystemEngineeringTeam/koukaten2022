@@ -99,18 +99,19 @@ class RegisterMarker {
     }
 
     static toString() {
-        const points = [...POINT_DB.values()];
-        const paths = [...PATH_DB.values()];
-        const ids = new Id();
+        const ids = new Id((i) => {
+            const ALPHABET = 'abcdefghijklmnopqrstuvwxyz';
+            let result = '';
 
-        for (const point of points) {
-            point.id = ids.get(point.id);
-        }
+            while (true) {
+                if (i < ALPHABET.length) return ALPHABET[i] + result;
+                result = ALPHABET[i % ALPHABET.length] + result;
+                i = i / ALPHABET.length - 1 | 0;
+            }
+        });
 
-        for (const path of paths) {
-            path.from = ids.get(path.from);
-            path.to = ids.get(path.to);
-        }
+        const points = Array.from(POINT_DB.values(), v => ({ ...v, id: ids.get(v.id) }));
+        const paths = Array.from(PATH_DB.values(), v => ({ ...v, from: ids.get(v.from), to: ids.get(v.to) }));
 
         return JSON.stringify({ points, paths });
     }
