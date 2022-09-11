@@ -8,7 +8,7 @@ const registerRouteData = (map: L.Map) => {
         const settings = getSettings();
         if (settings.mode === 0) {
             const point = {
-                id: RegisterMarker.getId(),
+                id: Symbol(),
                 jp: undefined,
                 latlng: e.latlng
             };
@@ -39,7 +39,7 @@ const registerRouteData = (map: L.Map) => {
         if (typeof reader.result !== 'string') return;
         const data = convertToPointData(reader.result);
 
-        const points = new Map<string, RegisterMarker>();
+        const points = new Map<Symbol, RegisterMarker>();
         for (const point of data.points) {
             const registerMarker = new RegisterMarker(map, point);
             points.set(point.id, registerMarker);
@@ -83,7 +83,7 @@ const convertToPointData = (string: string) => {
             from: inputPath.from,
             to: inputPath.to,
             distance: inputPath.distance
-        })
+        });
     }
 
     return result;

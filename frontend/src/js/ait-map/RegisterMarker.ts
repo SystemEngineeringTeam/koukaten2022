@@ -2,16 +2,16 @@ import * as L from 'leaflet';
 import { displayNameElm, getSettings } from './RegisterMenu';
 import { PathData, PointData } from './type';
 
-const POINT_DB = new Map<string, PointData>();
-const PATH_DB = new Map<string, PathData>();
+const POINT_DB = new Map<Symbol, PointData>();
+const PATH_DB = new Map<Symbol, PathData>();
 
 const OPACITY = { UNSELECT: 0.5, SELECT: 1 };
 
 class RegisterMarker {
-    id: string;
+    id: Symbol;
     jp: string | undefined;
     marker: L.Marker;
-    reach: Map<string, Path>;
+    reach: Map<Symbol, Path>;
 
     static selected: RegisterMarker | undefined;
 
@@ -121,9 +121,9 @@ class Path {
     from: RegisterMarker;
     to: RegisterMarker;
     line: L.Polyline;
-    id: string;
+    id: Symbol;
     constructor (from: RegisterMarker, to: RegisterMarker) {
-        this.id = Path.getId();
+        this.id = Symbol();
         this.from = from;
         this.to = to;
         this.line = L.polyline(
@@ -183,7 +183,7 @@ class Path {
 }
 
 class Id {
-    table: Map<string, string>;
+    table: Map<Symbol, string>;
     generator: (index: number) => string;
 
     constructor (generator: (index: number) => string = String) {
@@ -191,7 +191,7 @@ class Id {
         this.generator = generator;
     }
 
-    get (id: string): string {
+    get (id: Symbol): string {
         if (this.table.has(id)) {
             return this.table.get(id)!;
         } else {
