@@ -4,10 +4,10 @@ import (
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 )
 
-func routing(uri, username, password string) (string, error) {
+func Routing(uri, username, password string) (neo4j.ResultSummary, error) {
 	driver, err := neo4j.NewDriver(uri, neo4j.BasicAuth(username, password, ""))
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	defer driver.Close()
 
@@ -16,8 +16,8 @@ func routing(uri, username, password string) (string, error) {
 
 	greeting, err := session.WriteTransaction(func(transaction neo4j.Transaction) (interface{}, error) {
 		result, err := transaction.Run(
-			"CREATE (a:Greeting) SET a.message = $message RETURN a.message + ', from node ' + + id(a)",
-			map[string]interface{}{"message": "hello,world"})
+			"MATCH (from:Point{point_name:$pName})"+"MATCH (to:Building{building_name:$bName})"+"MATCH path=((from)-[:route*]->(to))"+"RETURN path",
+			map[string]interface{}{"pName": '1', "bName": "99"})
 		if err != nil {
 			return nil, err
 		}
@@ -26,11 +26,16 @@ func routing(uri, username, password string) (string, error) {
 			return result.Record().Values[0], nil
 		}
 
-		return nil, result.Err()
+		return result.Consume()
 	})
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return greeting.(string), nil
+	return greeting.(neo4j.ResultSummary), nil
 }
+
+// func routstart() {
+// 	trunsctionResult, err := routing("bolt://localhost:57687", "neo4j", "admin")
+// 	fmt.Println(trunsctionResult, err)
+// }
