@@ -1,4 +1,4 @@
-module ait-map
+module go
 
 go 1.18
 

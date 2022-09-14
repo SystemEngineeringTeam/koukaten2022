@@ -32,12 +32,12 @@ func main() {
 	e.Use(middleware.Recover())
 
 	//ルートを設定
-	e.GET("/", hello)
+	e.GET("/", Start)
 
 	//サーバをポート番号8000で起動
 	e.Logger.Fatal(e.Start(":8000"))
 }
 
-func hello(c echo.Context) error {
-	return c.File("../../f＊.html")
+func Start(c echo.Context) error {
+	return c.File("../../＊.html")
 }
