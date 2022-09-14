@@ -95,12 +95,15 @@
 }
 
 .nav-item{
-  position: relative;
-  left: -600px;
+  size: 40px;
+  /* position: relative;
+  left: -600px; */
+  margin-left: 30px;
 }
 .search-sub{
-  position: relative;
-  left: 60px;
+  /* position: relative;
+  left: 60px; */
+  margin-left: 35px;
 }
 
 
