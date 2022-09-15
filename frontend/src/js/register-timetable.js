@@ -1,2 +1,3 @@
-import { getStrTimetable } from "./ait-map/timetableStorage";
-import { HasLessonDay, TimetableData } from "./ait-map/type";
+document.getElementById("button").onclick = function(){
+    window.open('chooseSubject.html', '_blank', 'noreferrer');
+}
