@@ -24,3 +24,19 @@ body {
 .choose{
     text-decoration: none;
 }
+
+.register-timetable{
+    z-index: 9;
+    /* position: fixed; */
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #cde4ff;/*背景色*/
+}
+.register-timetable p{
+    margin: 0; 
+    padding: 0;
+}

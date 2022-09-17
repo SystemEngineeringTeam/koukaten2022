@@ -9,9 +9,9 @@ header {
     border: #000;
 
     z-index: 9999;
-    /* position: fixed;
+    position: fixed;
     top: 0px;
-    left: 0px; */
+    left: 0px;
 }
 
 .title{
@@ -123,6 +123,10 @@ div.center{
     }
 }
 /* ------スマホ画面用CSS-------- */
+
+.space{
+    height: 6rem;
+}
 
 
 /* ------背景アニメーション-------- */
