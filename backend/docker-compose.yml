@@ -21,14 +21,13 @@ services:
   go:
     container_name: koukaten2022_GO
     build:
-      context: ./
-      dockerfile: ./docker/app/Dockerfile
-    # command: /bin/sh -c "go run main.go"
+      context: ../
+      dockerfile: ./backend/docker/app/Dockerfile
     stdin_open: true
     tty: true
     volumes:
       - ./GO:/app
-      - ./frontend/dist/:/app
+      - ./frontend/dist:/app
     ports: 
       - "8080:8080"
     depends_on:

@@ -20,6 +20,9 @@ RUN apk update && apk add git
 
 # CMD ["go", "run", "main.go"]
 
+ENV GOENV_ROOT=/go/
+ENV PATH=$GOENV_ROOT/bin:$PATH
+
 RUN mkdir /app
 WORKDIR /app
 
@@ -29,6 +32,8 @@ RUN go get github.com/go-sql-driver/mysql
 RUN go get github.com/jinzhu/gorm
 RUN go get github.com/joho/godotenv
 
-COPY ../../GO/main.go /app/main.go
+COPY ../../backend/GO/main.go /app/main.go
+COPY ../../../frontend/dist/ /app/dist/
+COPY ../../../frontend/dist/ait-map.html /app/dist/ait-map.html
 
 CMD ["go", "run", "main.go"]

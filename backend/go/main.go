@@ -36,11 +36,18 @@ func main() {
 	//ルートを設定
 	e.GET("/", Start)
 
+	// e.GET("/", func(c echo.Context) error {
+	// 	return c.String(http.StatusOK, "Hello, World!!")
+	// })
+
 	//サーバをポート番号8000で起動
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
 func Start(c echo.Context) error {
-	return c.File("frontend/dist/ait-map.html")
+	// return c.String(http.StatusOK, "Hello, World!!")
+	// return c.File("../../frontend/src/ait-map.html")
+	return c.File("dist/dist/ait-map.html")
 	// return c.File("ait-map.html")
+
 }
