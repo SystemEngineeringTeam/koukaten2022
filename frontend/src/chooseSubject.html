@@ -12,16 +12,49 @@
                 <li><a href="ait-map.html" id="title" class="title">愛工大MAP</a></li>
             </ul>
         </header>
-        <ul>
-            <li>曜日 : <input></li>
-            <li>時間 : <input></li>
-        </ul>
+
+        <form method="post" action="/search">
+            <ul>
+                <li>
+                    <label for="prefecture">学年 : </label><select name="grade"><option value="">選択してください</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="prefecture">曜日 : </label><select name="day"><option value="">選択してください</option>
+                    <option value="月">月</option>
+                    <option value="火">火</option>
+                    <option value="水">水</option>
+                    <option value="木">木</option>
+                    <option value="金">金</option>
+                    <option value="土">土</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="prefecture">時限 : </label><select name="time"><option value="">選択してください</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    </select>
+                </li>
+            </ul>
+            <p><input type="submit" value="Send"></p>
+        </form>
+
         <div>この時間の授業</div>
-        <ul>
-            <li><input></li>
-            <li><input></li>
-            <li><input></li>
-        </ul>
+        <tr>
+        {{ range .result }}
+            <td>{{ .result }}</td>
+            <td>{{ .result }}</td>
+            <td>{{ .result }}</td>
+            <td>{{ .result }}</td>
+        </tr>
         
     </body>
 </html>
