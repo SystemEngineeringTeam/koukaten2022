@@ -1,6 +1,5 @@
 import * as L from 'leaflet';
 import registerRouteData from './ait-map/registerRouteData';
-import routeSerch from './ait-map/routeSerch';
 import setTimetable from './ait-map/setTimetable';
 
 const DISPLAY_RANGE: [[number, number], [number, number]] = [
@@ -36,7 +35,6 @@ const main = () => {
     L.polyline(EXAMPLE_ROUTE, { color: 'red', opacity: 0.5 }).addTo(map);
 
     // registerRouteData(map);
-    // routeSerch(map);
     setTimetable();
 };
 
