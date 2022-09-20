@@ -29,7 +29,8 @@ body {
     z-index: 9;
     position: fixed;
     /* top: 0px; */
-    left: 140px;
+    /* text-align: center; */
+    margin: 0 auto;
     background-color: #fff;
     padding: 0.5em 1em;
     margin: 2em 0;
