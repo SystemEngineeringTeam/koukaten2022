@@ -22,6 +22,36 @@ func GetSubjectAll() []*Subject {
 	return result
 }
 
+
+func GetSubjectResult(faculty string, name string, grade string, day string, time string) []*Subject {
+	result := []*Subject{}
+
+	search := db.Where("")
+	if faculty != "" {
+		search.Where("folder_name LIKE ?", "%"+faculty+"%")
+	}
+	if name != "" {
+		search.Where("subject_name LIKE ?", "%"+name+"%")
+	}
+	if grade != "" {
+		search.Where("grade LIKE ?", "%"+grade+"%")
+	}
+	if day != "" {
+		search.Where("day_time LIKE ?", "%"+day+"%")
+	}
+	if time != "" {
+		search.Where("day_time LIKE ?", "%"+time+"%")
+	}
+
+	search.Find(&result)
+
+	if len(result) == 190 {
+		result = nil
+	}
+
+	return result
+}
+
 //IDを検索してデータを取得
 func GetID(room_number string) []*Subject {
 	result := []*Subject{}
@@ -72,16 +102,24 @@ func GetSemester(semester string) []*Subject {
 }
 
 //受講可能日を検索してデータを取得
-func GetDay(day string) []*Subject {
-	result := []*Subject{}
-	db.Where("day_time LIKE ?", "%"+day+"%").Find(&result)
-	return result
-}
+// func GetDay(day string) []*Subject {
+// 	result := []*Subject{}
+// 	db.Where("day_time LIKE ?", "%"+day+"%").Find(&result)
+// 	return result
+// }
 
-//受講可能時間を検索してデータを取得
-func GetTime(time string) []*Subject {
+// //受講可能時間を検索してデータを取得
+// func GetTime(time string) []*Subject {
+// 	result := []*Subject{}
+// 	db.Where("day_time LIKE ?", "%"+time+"%").Find(&result)
+// 	return result
+// }
+
+func GetDayTime(day string, time string) []*Subject {
 	result := []*Subject{}
-	db.Where("day_time LIKE ?", "%"+time+"%").Find(&result)
+	//db.Where("day_time LIKE ?", "%"+time+"%").Find(&result)
+	db.Where("day_time LIKE ? AND day_time LIKE ?", "%"+day+"%", "%"+time+"%").Find(&result)
+
 	return result
 }
 
