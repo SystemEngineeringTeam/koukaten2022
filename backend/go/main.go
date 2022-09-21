@@ -31,23 +31,20 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.Static("", "frontend/dist")
+	e.Static("/", "./frontend/dist/")
 
 	//ルートを設定
 	e.GET("/", Start)
 
-	// e.GET("/", func(c echo.Context) error {
-	// 	return c.String(http.StatusOK, "Hello, World!!")
-	// })
-
-	//サーバをポート番号8000で起動
+	//サーバーを起動
 	e.Logger.Fatal(e.Start(":8080"))
+
+	// //サーバをポート番号8000で起動
+	// e.Logger.Fatal(e.Start(":8000"))
 }
 
 func Start(c echo.Context) error {
-	// return c.String(http.StatusOK, "Hello, World!!")
-	// return c.File("../../frontend/src/ait-map.html")
-	return c.File("dist/dist/ait-map.html")
-	// return c.File("ait-map.html")
+
+	return c.File("./frontend/dist/ait-map.html")
 
 }

@@ -1,5 +1,5 @@
-version: "3"
-services:
+# version: "3"
+# services:
   # go:
   #   container_name: koukaten2022_GO
   #   build:
@@ -18,18 +18,24 @@ services:
   #   depends_on:
   #     - "mysql"
 
+version: "3"
+services:
   go:
     container_name: koukaten2022_GO
     build:
-      context: ../
-      dockerfile: ./backend/docker/app/Dockerfile
+      context: ./docker/app
+      dockerfile: Dockerfile
     stdin_open: true
     tty: true
+    env_file:
+      - ./Docker/app/.env
     volumes:
-      - ./GO:/app
-      - ./frontend/dist:/app
-    ports: 
-      - "8080:8080"
+      - type: bind
+        source: ./go
+        target: /go/app
+      - ../frontend/dist:/go/app/frontend/dist
+    ports:
+      - 8080:8080
     depends_on:
       - "mysql"
 
