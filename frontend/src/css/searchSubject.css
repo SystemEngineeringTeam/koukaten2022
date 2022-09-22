@@ -7,3 +7,135 @@ body {
 li{
     list-style: none;
 }
+header {
+    height: 6rem;
+    background-color: #fff;
+    padding: 0 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 5rem;
+    column-gap: 1rem;
+    border-bottom: 1rem solid;
+    border: #000;
+
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.title{
+    font-size: 30px;
+}
+
+header>a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+#headerimg{
+    position: relative;
+    left: -50px;
+    top: -10px;
+    height: 80px;
+    width: 80px;
+    vertical-align: top;
+}
+
+
+.nav-item {
+    margin: auto;
+    /* 阪口 */
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    display:flex;
+}
+
+.nav-name {
+    font-size: 0.3rem;
+}
+
+.search-sub{
+    text-decoration: none;
+    color: #000;
+    padding-left:30px;
+}
+
+div.center{
+    text-align: center;
+}
+
+
+#register-timetable{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #fff;/*背景色*/
+    z-index: 999;
+}
+#register-timetable p{
+    margin: 0; 
+    padding: 0;
+}
+
+
+/* #headerimg{
+    position: relative;
+    top: 10px;
+    height: 80px;
+    width: 80px;
+    /* vertical-align: bottom; */
+/* } */ 
+
+#title {
+    font-size: 2.5rem;
+    text-align:center
+}
+
+.title{
+    display: block;
+    text-decoration: none;
+    /* font-size: 120px; */
+    color: black;
+    position: absolute; 
+    top: 15px;
+    left: 80px;
+}
+
+.header-border{
+    width: 100%;
+    border-bottom: 3px solid #2ca9e1;
+
+    z-index: 1;
+}
+
+
+/* ------スマホ画面用CSS-------- */
+@media only screen and (max-device-width: 480px) {
+	/* スマホ用のCSS */
+    #headerimg{
+        position: relative;
+        left: -50px;
+        top: -10px;
+        height: 80px;
+        width: 80px;
+        /* vertical-align: bottom; */
+    }
+    .title{
+        display: block;
+        text-decoration: none;
+        font-size: 100px;
+        color: black;
+        /* position: relative;  */
+        top: 30px;
+        left: 70px;
+    }
+}
+/* ------スマホ画面用CSS-------- */
+
+.space{
+    height: 6rem;
+}
