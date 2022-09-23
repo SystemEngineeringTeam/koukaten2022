@@ -93,10 +93,15 @@ div.center{
 
 @media only screen and (max-device-width: 480px) {
 	/* スマホ用のCSS */
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
     #headerimg{
         position: relative;
-        left: -50px;
-        top: -10px;
+        left: -10px;
+        top: 6px;
         height: 80px;
         width: 80px;
         /* vertical-align: bottom; */

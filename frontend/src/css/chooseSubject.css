@@ -58,3 +58,29 @@ header>a {
     left: -40px;
     top: -16px;
 }
+
+@media only screen and (max-device-width: 480px) {
+	/* スマホ用のCSS */
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    #headerimg{
+        position: relative;
+        left: -50px;
+        top: -10px;
+        height: 80px;
+        width: 80px;
+        /* vertical-align: bottom; */
+    }
+    .title{
+        display: block;
+        text-decoration: none;
+        font-size: 100px;
+        color: black;
+        /* position: relative;  */
+        top: 30px;
+        left: 70px;
+    }
+}
