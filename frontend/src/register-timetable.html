@@ -4,100 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/register-header.css">
     <link rel="stylesheet" href="css/register-timetable.css">
+    <link rel="stylesheet" href="css/animation.css">
     <title>AIT MAP</title>
 </head>
 
 <body>
-    <header>
-        <a href="ait-map.html" id="title">
-            愛工大MAP
-        </div>
-        <a href="register-timetable.html" class="nav-item">
+    <header class="header-border">
+        <ul>
+            <li><img src="https://cdn.icon-icons.com/icons2/1559/PNG/128/3440906-direction-location-map-marker-navigation-pin_107531.png" id="headerimg"></li>
+            <li><a href="ait-map.html" id="title" class="title">愛工大MAP</a></li>
+        </ul>
+        <!-- <a href="register-timetable.html" class="nav-item">
             時間割登録
-        </a>
+        </a> -->
     </header>
-    <div id="main">
-        <div id="register-timetable">
-            <table>
-                <tr class="timetable-row">
-                    <th class="timetable-label"></th>
-                    <th class="timetable-label">月</th>
-                    <th class="timetable-label">火</th>
-                    <th class="timetable-label">水</th>
-                    <th class="timetable-label">木</th>
-                    <th class="timetable-label">金</th>
-                    <th class="timetable-label">土</th>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅰ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="0"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="0"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="0"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="0"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="0"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="0"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅱ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="1"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="1"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="1"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="1"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="1"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="1"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅲ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="2"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="2"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="2"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="2"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="2"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="2"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅳ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="3"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="3"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="3"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="3"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="3"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="3"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅴ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="4"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="4"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="4"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="4"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="4"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="4"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅵ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="5"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="5"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="5"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="5"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="5"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="5"></td>
-                </tr>
-                <tr class="timetable-row">
-                    <td class="timetable-label">Ⅶ</td>
-                    <td class="timetable-cell" data-day="mon" data-lecture="6"></td>
-                    <td class="timetable-cell" data-day="tue" data-lecture="6"></td>
-                    <td class="timetable-cell" data-day="wed" data-lecture="6"></td>
-                    <td class="timetable-cell" data-day="thu" data-lecture="6"></td>
-                    <td class="timetable-cell" data-day="fri" data-lecture="6"></td>
-                    <td class="timetable-cell" data-day="sat" data-lecture="6"></td>
-                </tr>
-            </table>
+
+    <div class="space"></div>
+    <div class="context">
+        <div id="main">
+            <div id="register-timetable">
+                <table>
+                    <tr class="timetable-row">
+                        <th class="timetable-label"></th>
+                        <th class="timetable-label">月</th>
+                        <th class="timetable-label">火</th>
+                        <th class="timetable-label">水</th>
+                        <th class="timetable-label">木</th>
+                        <th class="timetable-label">金</th>
+                        <th class="timetable-label">土</th>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅰ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="0" id="monⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="0" id="tueⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="0" id="wedⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="0" id="thuⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="0" id="friⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="0" id="satⅠbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅱ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="1" id="monⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="1" id="tueⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="1" id="wedⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="1" id="thuⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="1" id="friⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="1" id="satⅡbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅲ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="2" id="monⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="2" id="tueⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="2" id="wedⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="2" id="thuⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="2" id="friⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="2" id="satⅢbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅳ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="3" id="monⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="3" id="tueⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="3" id="wedⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="3" id="thuⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="3" id="friⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="3" id="satⅣbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅴ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="4" id="monⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="4" id="tueⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="4" id="wedⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="4" id="thuⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="4" id="friⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="4" id="satⅤbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅵ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="5" id="monⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="5" id="tueⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="5" id="wedⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="5" id="thuⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="5" id="friⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="5" id="satⅥbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                    <tr class="timetable-row">
+                        <td class="timetable-label">Ⅶ</td>
+                        <td class="timetable-cell" data-day="mon" data-lecture="6" id="monⅦbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="tue" data-lecture="6" id="tueⅦbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="wed" data-lecture="6" id="wedvbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="thu" data-lecture="6" id="thuⅦbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="fri" data-lecture="6" id="friⅦbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                        <td class="timetable-cell" data-day="sat" data-lecture="6" id="satⅦbutton"><a class="choose" onclick="buttonClick()">-</a></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+    
+    <div class="area" >
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div >
 </body>
 
 </html>

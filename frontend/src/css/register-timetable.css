@@ -21,3 +21,23 @@ body {
     text-align: center;
 }
 
+.choose{
+    text-decoration: none;
+}
+
+#main{
+    z-index: 5;
+    position: relative;
+    top: -120px;
+    /* text-align: center; */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #fff;/*背景色*/
+}
+#main p{
+    margin: 0; 
+    padding: 0;
+}

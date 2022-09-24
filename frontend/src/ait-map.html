@@ -4,182 +4,237 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/ait-map.css">
+    <link rel="stylesheet" href="css/hamburger.css">
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-4/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-4/css/5-4.css"> -->
+
     <title>AIT MAP</title>
 </head>
 
 <body>
-    <header>
-        <a href="ait-map.html" id="title">
-            愛工大MAP
+    <header class="header-border">
+        <ul>
+            <li><img src="https://cdn.icon-icons.com/icons2/1559/PNG/128/3440906-direction-location-map-marker-navigation-pin_107531.png"
+                    id="headerimg"></li>
+            <li><a href="ait-map.html" id="title" class="title">愛工大MAP</a></li>
+        </ul>
+
+
+        <!-- ------追加(阪口)------ -->
+        <!-- ハンバーガーメニュー部分 -->
+        <div class="hamburger-menu">
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <!--ここからメニュー-->
+            <div class="menu-content">
+                <ul class="hamburger-ul">
+                    <li>
+                        <a href="register-timetable.html" class="nav-item">時間割登録</a>
+                    </li>
+                    <li>
+                        <a href="searchSubject.html" class="search-sub">
+                            検索
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--ここまでメニュー-->
         </div>
-        <a href="register-timetable.html" class="nav-item">
-            時間割登録
-        </a>
+
+        <!-- ------追加ここまで(阪口)------ -->
     </header>
     <div id="main">
-        <div id="main-map"></div>
-        <div id="today-timetable">
-            <div class="timetable-week" data-day="mon">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-            </div>
-            <div class="timetable-week" data-day="tue">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-            </div>
-            <div class="timetable-week" data-day="wed">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-            </div>
-            <div class="timetable-week" data-day="thu">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-            </div>
-            <div class="timetable-week" data-day="fri">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-            </div>
-            <div class="timetable-week" data-day="sat">
-                <div class="timetable-row">
-                    <div class="timetable-time">I</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅱ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅲ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅳ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅴ</div>
-                    <div class="timetable-classname"></div>
-                </div>
-                <div class="timetable-row">
-                    <div class="timetable-time">Ⅵ</div>
-                    <div class="timetable-classname"></div>
+        <div class="space"></div>
+        <div class="context">
+            <div id="main-map"></div>
+            <div class="timetable">
+
+                <div id="today-timetable">
+                    <div class="timetable-week" data-day="mon">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
+                    <div class="timetable-week" data-day="tue">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
+                    <div class="timetable-week" data-day="wed">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
+                    <div class="timetable-week" data-day="thu">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
+                    <div class="timetable-week" data-day="fri">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
+                    <div class="timetable-week" data-day="sat">
+                        <div class="timetable-row">
+                            <div class="timetable-time">I</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅱ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅲ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅳ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅴ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                        <div class="timetable-row">
+                            <div class="timetable-time">Ⅵ</div>
+                            <div class="timetable-classname"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </body>
 
