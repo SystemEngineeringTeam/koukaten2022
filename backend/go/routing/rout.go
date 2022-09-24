@@ -1,41 +1,100 @@
 package routing
 
 import (
-	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
+	"fmt"
+
+	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
 
-func Routing(uri, username, password string) (neo4j.ResultSummary, error) {
-	driver, err := neo4j.NewDriver(uri, neo4j.BasicAuth(username, password, ""))
+type Coordinate struct {
+	Lat float64 `json:"lat"`
+	Lng float64 `json:"lng"`
+}
+
+func GetCoordinate(uri, username, password string) ([]float64, []float64, error) {
+	configForNeo4j4 := func(conf *neo4j.Config) { conf.Encrypted = false }
+	driver, err := neo4j.NewDriver(uri, neo4j.BasicAuth(username, password, ""), configForNeo4j4)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	defer driver.Close()
-
-	session := driver.NewSession(neo4j.SessionConfig{AccessMode: neo4j.AccessModeWrite})
+	sessionConfig := neo4j.SessionConfig{AccessMode: neo4j.AccessModeRead, DatabaseName: "neo4j"}
+	session, err := driver.NewSession(sessionConfig)
+	if err != nil {
+		return nil, nil, err
+	}
 	defer session.Close()
-
-	greeting, err := session.WriteTransaction(func(transaction neo4j.Transaction) (interface{}, error) {
+	results, err := session.ReadTransaction(func(transaction neo4j.Transaction) (interface{}, error) {
 		result, err := transaction.Run(
-			"MATCH (from:Point{point_name:$pName})"+"MATCH (to:Building{building_name:$bName})"+"MATCH path=((from)-[:route*]->(to))"+"RETURN path",
-			map[string]interface{}{"pName": '1', "bName": "99"})
+			`
+			MATCH (:Point{point_name:$from})-[:route*]->(test:Point)-[:route*]->(:Point{point_name:$to})
+			RETURN test.lat as lat
+			`, map[string]interface{}{
+				"from": "1", "to": "4",
+			})
 		if err != nil {
 			return nil, err
 		}
+		// fmt.Println(result)
+		var lat []float64
 
-		if result.Next() {
-			return result.Record().Values[0], nil
+		for result.Next() {
+			value, found := result.Record().Get("lat")
+			if found {
+				lat = append(lat, value.(float64))
+			}
 		}
-
-		return result.Consume()
+		if err = result.Err(); err != nil {
+			return nil, err
+		}
+		return lat, nil
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
+	res, err := session.ReadTransaction(func(transaction neo4j.Transaction) (interface{}, error) {
+		result, err := transaction.Run(
+			`
+			MATCH (:Point{point_name:$from})-[:route*]->(test:Point)-[:route*]->(:Point{point_name:$to})
+			RETURN test.lng as lng
+			`, map[string]interface{}{
+				"from": "1", "to": "4",
+			})
+		if err != nil {
+			return nil, err
+		}
+		// fmt.Println(result)
+		var lng []float64
 
-	return greeting.(neo4j.ResultSummary), nil
+		for result.Next() {
+			value, found := result.Record().Get("lng")
+			if found {
+				lng = append(lng, value.(float64))
+			}
+		}
+		if err = result.Err(); err != nil {
+			return nil, err
+		}
+		return lng, nil
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	return results.([]float64), res.([]float64), err
 }
 
-// func routstart() {
-// 	trunsctionResult, err := routing("bolt://localhost:57687", "neo4j", "admin")
-// 	fmt.Println(trunsctionResult, err)
-// }
+func routing() {
+	lat, lng, err := GetCoordinate("bolt://localhost:57687", "neo4j", "admin")
+	if err != nil {
+		panic(err)
+	}
+	co := []Coordinate{
+		{35.23482507, 137.0693223},
+	}
+	for i := 0; i < len(lat); i++ {
+		co = append(co, Coordinate{lat[i], lng[i]})
+	}
+	fmt.Println(lat)
+	fmt.Println(lng)
+	fmt.Println(co)
+}

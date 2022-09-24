@@ -30,6 +30,7 @@ func main() {
 	//ミドルウェアを設定
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Static("", "../../frontend/dist")
 
 	//ルートを設定
 	e.GET("/", Start)
@@ -39,5 +40,5 @@ func main() {
 }
 
 func Start(c echo.Context) error {
-	return c.File("../../＊.html")
+	return c.File("../../frontend/dist/register-timetable.html")
 }
