@@ -1,7 +1,7 @@
 package routing
 
 import (
-	"fmt"
+	"encoding/json"
 
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
@@ -83,18 +83,20 @@ func GetCoordinate(uri, username, password string) ([]float64, []float64, error)
 	return results.([]float64), res.([]float64), err
 }
 
-func routing() {
+func routing(this_lat, this_lng float64) []byte {
 	lat, lng, err := GetCoordinate("bolt://localhost:57687", "neo4j", "admin")
 	if err != nil {
 		panic(err)
 	}
 	co := []Coordinate{
-		{35.23482507, 137.0693223},
+		{this_lat, this_lng},
 	}
 	for i := 0; i < len(lat); i++ {
 		co = append(co, Coordinate{lat[i], lng[i]})
 	}
-	fmt.Println(lat)
-	fmt.Println(lng)
-	fmt.Println(co)
+	// fmt.Println(lat)
+	// fmt.Println(lng)
+	// fmt.Println(co)
+	coordinate, _ := json.Marshal(co)
+	return coordinate
 }
