@@ -18,27 +18,33 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 
 func main() {
 
-	t := &Template{
-		templates: template.Must(template.ParseGlob("../../*.html")),
-	}
+	// t := &Template{
+	// 	templates: template.Must(template.ParseGlob("../../*.html")),
+	// }
 
 	//インスタンスの作成
 	e := echo.New()
 
-	e.Renderer = t
+	// e.Renderer = t
 
 	//ミドルウェアを設定
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Static("", "../../frontend/dist")
+
+	e.Static("/", "./frontend/dist/")
 
 	//ルートを設定
 	e.GET("/", Start)
 
-	//サーバをポート番号8000で起動
-	e.Logger.Fatal(e.Start(":8000"))
+	//サーバーを起動
+	e.Logger.Fatal(e.Start(":8080"))
+
+	// //サーバをポート番号8000で起動
+	// e.Logger.Fatal(e.Start(":8000"))
 }
 
 func Start(c echo.Context) error {
-	return c.File("../../frontend/dist/register-timetable.html")
+
+	return c.File("./frontend/dist/ait-map.html")
+
 }
