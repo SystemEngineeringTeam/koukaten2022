@@ -1,4 +1,4 @@
-﻿:START_ID,:END_ID,:TYPE,time:int
+﻿:START_ID,:END_ID,:TYPE,cost:int
 b,a,route,1
 c,b,route,1
 d,c,route,1
