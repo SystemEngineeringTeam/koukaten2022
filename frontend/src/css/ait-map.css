@@ -7,16 +7,15 @@ body {
     padding: 1em;
     margin: 0 auto;
     max-width: 50em;
+    z-index: 1;
 }
 
 #main-map {
     height: 50vh;
-    z-index: 2;
 }
 
-#today-timetable {
+#timetable {
     display: flex;
-    margin-top: 1em;
     flex-direction: row;
     overflow: scroll scroll;
     column-gap: 10%;
@@ -25,10 +24,9 @@ body {
     -ms-overflow-style: none;
 }
 
-#today-timetable::-webkit-scrollbar {
+#timetable::-webkit-scrollbar {
     display: none;
 }
-
 
 .timetable-week {
     width: 90%;
@@ -47,39 +45,18 @@ body {
     text-align: center;
     background-color: #ffffff;
     width: 100%;
-
-}
-
-.today-timetable {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #2c2c2f;
-    background: #cde4ff;
-}
-
-.today-timetable p {
-    margin: 0;
-    padding: 0;
+    z-index: 9;
 }
 
 .timetable-classname {
-    z-index: 9;
     top: 0px;
     left: 0px;
     background-color: #ffffff;
+    z-index: 9;
 }
 
-.timetable {
-    z-index: 888;
-
+.timetable-wrapper {
+    margin-top: 1em;
     padding: 0.5em 1em;
-    background: -moz-linear-gradient(#2ca9e1, #2ca9e1);
-    background: -webkit-linear-gradient(#2ca9e1, #2ca9e1);
-    background: linear-gradient(to right, #2ca9e1, #2ca9e1);
-    color: #000000;
-}
-
-.timetable p {
-    margin: 0;
-    padding: 0;
+    background: #2ca9e1;
 }
