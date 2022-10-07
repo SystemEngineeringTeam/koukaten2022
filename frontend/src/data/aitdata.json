@@ -1,0 +1,645 @@
+{
+    "points": [
+        {
+            "id": "a",
+            "jp": "正門",
+            "latlng": { "lat": 35.18186301683754, "lng": 137.1096056699753 }
+        },
+        {
+            "id": "b",
+            "latlng": { "lat": 35.182169930239525, "lng": 137.10973441600802 }
+        },
+        {
+            "id": "c",
+            "latlng": { "lat": 35.18270044924413, "lng": 137.11013674736026 }
+        },
+        {
+            "id": "d",
+            "latlng": { "lat": 35.18273552475875, "lng": 137.11026549339297 }
+        },
+        {
+            "id": "e",
+            "latlng": { "lat": 35.182564531481994, "lng": 137.11022257804873 }
+        },
+        {
+            "id": "f",
+            "jp": "バス停",
+            "latlng": { "lat": 35.18227954188795, "lng": 137.1098738908768 }
+        },
+        {
+            "id": "g",
+            "latlng": { "lat": 35.182814444611296, "lng": 137.1109360456467 }
+        },
+        {
+            "id": "h",
+            "latlng": { "lat": 35.18370009547875, "lng": 137.11085021495822 }
+        },
+        {
+            "id": "i",
+            "latlng": { "lat": 35.18284513564438, "lng": 137.1111345291138 }
+        },
+        {
+            "id": "j",
+            "latlng": { "lat": 35.18268729592223, "lng": 137.1114027500153 }
+        },
+        {
+            "id": "k",
+            "latlng": { "lat": 35.182840751211785, "lng": 137.11179435253146 }
+        },
+        {
+            "id": "l",
+            "latlng": { "lat": 35.18293720867404, "lng": 137.11222887039187 }
+        },
+        {
+            "id": "m",
+            "latlng": { "lat": 35.18269606480372, "lng": 137.1116548776627 }
+        },
+        {
+            "id": "n",
+            "latlng": { "lat": 35.18371324863671, "lng": 137.1110433340073 }
+        },
+        {
+            "id": "o",
+            "latlng": { "lat": 35.18389739262481, "lng": 137.11103260517123 }
+        },
+        {
+            "id": "p",
+            "latlng": { "lat": 35.18419552962568, "lng": 137.11153686046603 }
+        },
+        {
+            "id": "q",
+            "latlng": { "lat": 35.18394562074321, "lng": 137.1115690469742 }
+        },
+        {
+            "id": "r",
+            "latlng": { "lat": 35.18374832371422, "lng": 137.11160659790042 }
+        },
+        {
+            "id": "s",
+            "latlng": { "lat": 35.18392369887477, "lng": 137.11135983467105 }
+        },
+        {
+            "id": "t",
+            "latlng": { "lat": 35.18275744694769, "lng": 137.11250782012942 }
+        },
+        {
+            "id": "u",
+            "latlng": { "lat": 35.182744293635025, "lng": 137.11315691471103 }
+        },
+        {
+            "id": "v",
+            "latlng": { "lat": 35.183099432329705, "lng": 137.11223959922793 }
+        },
+        {
+            "id": "w",
+            "jp": "テニスコート",
+            "latlng": { "lat": 35.18313889208886, "lng": 137.1126633882523 }
+        },
+        {
+            "id": "x",
+            "latlng": { "lat": 35.18387985512011, "lng": 137.11355388164523 }
+        },
+        {
+            "id": "y",
+            "jp": "AITプラザ",
+            "latlng": { "lat": 35.184186760905995, "lng": 137.11181581020358 }
+        },
+        {
+            "id": "z",
+            "latlng": { "lat": 35.18379216753985, "lng": 137.1123039722443 }
+        },
+        {
+            "id": "aa",
+            "latlng": { "lat": 35.18400261757354, "lng": 137.11227715015414 }
+        },
+        {
+            "id": "ab",
+            "latlng": { "lat": 35.18397192697758, "lng": 137.11183190345767 }
+        },
+        {
+            "id": "ac",
+            "jp": "2号館実験棟",
+            "latlng": { "lat": 35.18410345802157, "lng": 137.11287796497348 }
+        },
+        {
+            "id": "ad",
+            "latlng": { "lat": 35.18383601134181, "lng": 137.11289405822757 }
+        },
+        {
+            "id": "ae",
+            "latlng": { "lat": 35.18418237654576, "lng": 137.11369872093204 }
+        },
+        {
+            "id": "af",
+            "latlng": { "lat": 35.18399384883301, "lng": 137.11372017860415 }
+        },
+        {
+            "id": "ag",
+            "jp": "12号館",
+            "latlng": { "lat": 35.18371324863671, "lng": 137.11357533931735 }
+        },
+        {
+            "id": "ah",
+            "latlng": { "lat": 35.18401577068254, "lng": 137.1139615774155 }
+        },
+        {
+            "id": "ai",
+            "jp": "新2号館",
+            "latlng": { "lat": 35.18378339877662, "lng": 137.1139830350876 }
+        },
+        {
+            "id": "aj",
+            "latlng": { "lat": 35.18361240770452, "lng": 137.1137470006943 }
+        },
+        {
+            "id": "ak",
+            "latlng": { "lat": 35.18355979499458, "lng": 137.1131354570389 }
+        },
+        {
+            "id": "al",
+            "latlng": { "lat": 35.182744293635025, "lng": 137.11384892463687 }
+        },
+        {
+            "id": "am",
+            "latlng": { "lat": 35.18435336641866, "lng": 137.11368262767795 }
+        },
+        {
+            "id": "an",
+            "jp": "セントラルテラス",
+            "latlng": { "lat": 35.184199913985196, "lng": 137.11395621299746 }
+        },
+        {
+            "id": "ao",
+            "latlng": { "lat": 35.18453750895638, "lng": 137.11366653442386 }
+        },
+        {
+            "id": "ap",
+            "latlng": { "lat": 35.18456819933874, "lng": 137.1134036779404 }
+        },
+        {
+            "id": "aq",
+            "latlng": { "lat": 35.1844805125012, "lng": 137.11222350597384 }
+        },
+        {
+            "id": "ar",
+            "jp": "7号館",
+            "latlng": { "lat": 35.18461642705909, "lng": 137.11256682872775 }
+        },
+        {
+            "id": "as",
+            "jp": "1号館別館",
+            "latlng": { "lat": 35.18474357273004, "lng": 137.11096286773684 }
+        },
+        {
+            "id": "at",
+            "latlng": { "lat": 35.184594505371564, "lng": 137.11097896099093 }
+        },
+        {
+            "id": "au",
+            "jp": "9号館",
+            "latlng": { "lat": 35.18476987870609, "lng": 137.11145102977756 }
+        },
+        {
+            "id": "av",
+            "latlng": { "lat": 35.184625195732444, "lng": 137.11146712303164 }
+        },
+        {
+            "id": "aw",
+            "jp": "旧1号館",
+            "latlng": { "lat": 35.184458590777005, "lng": 137.11149930953982 }
+        },
+        {
+            "id": "ax",
+            "latlng": { "lat": 35.18431829160229, "lng": 137.11152076721194 }
+        },
+        {
+            "id": "ay",
+            "jp": "10号館",
+            "latlng": { "lat": 35.184278832415735, "lng": 137.11100578308108 }
+        },
+        {
+            "id": "az",
+            "latlng": { "lat": 35.18434021336429, "lng": 137.11180508136752 }
+        },
+        {
+            "id": "ba",
+            "latlng": { "lat": 35.18465150174679, "lng": 137.11327493190768 }
+        },
+        {
+            "id": "bb",
+            "jp": "5号館講義実験棟",
+            "latlng": { "lat": 35.18456381499912, "lng": 137.114052772522 }
+        },
+        {
+            "id": "bc",
+            "latlng": { "lat": 35.184370903821176, "lng": 137.11407423019412 }
+        },
+        {
+            "id": "bd",
+            "latlng": { "lat": 35.184379672521025, "lng": 137.11433708667758 }
+        },
+        {
+            "id": "be",
+            "jp": "8号館",
+            "latlng": { "lat": 35.184221835779134, "lng": 137.11434781551364 }
+        },
+        {
+            "id": "bf",
+            "jp": "計算センター",
+            "latlng": { "lat": 35.18460765838479, "lng": 137.11469113826755 }
+        },
+        {
+            "id": "bg",
+            "latlng": { "lat": 35.18440159426649, "lng": 137.11472332477572 }
+        },
+        {
+            "id": "bh",
+            "latlng": { "lat": 35.18441474731094, "lng": 137.11518466472629 }
+        },
+        {
+            "id": "bi",
+            "latlng": { "lat": 35.184134148567864, "lng": 137.11550652980807 }
+        },
+        {
+            "id": "bj",
+            "latlng": { "lat": 35.184813721980596, "lng": 137.1155655384064 }
+        },
+        {
+            "id": "bk",
+            "jp": "4号館別館",
+            "latlng": { "lat": 35.18520392608161, "lng": 137.1155118942261 }
+        },
+        {
+            "id": "bl",
+            "latlng": { "lat": 35.185085549754554, "lng": 137.11593031883243 }
+        },
+        {
+            "id": "bm",
+            "latlng": { "lat": 35.18502855368374, "lng": 137.11553335189822 }
+        },
+        {
+            "id": "bn",
+            "latlng": { "lat": 35.18518200455258, "lng": 137.11522758007052 }
+        },
+        {
+            "id": "bo",
+            "latlng": { "lat": 35.18485318090741, "lng": 137.11525440216067 }
+        },
+        {
+            "id": "bp",
+            "jp": "4号館",
+            "latlng": { "lat": 35.18484879658316, "lng": 137.11514711380008 }
+        },
+        {
+            "id": "bq",
+            "latlng": { "lat": 35.184721651076835, "lng": 137.11515784263614 }
+        },
+        {
+            "id": "br",
+            "latlng": { "lat": 35.18439720991786, "lng": 137.11527049541476 }
+        },
+        {
+            "id": "bs",
+            "latlng": { "lat": 35.18355979499458, "lng": 137.11579084396365 }
+        },
+        {
+            "id": "bt",
+            "latlng": { "lat": 35.18348964466167, "lng": 137.1158015727997 }
+        },
+        {
+            "id": "bu",
+            "latlng": { "lat": 35.18290651767575, "lng": 137.11546897888186 }
+        },
+        {
+            "id": "bv",
+            "latlng": { "lat": 35.18277498469459, "lng": 137.1154046058655 }
+        },
+        {
+            "id": "bw",
+            "latlng": { "lat": 35.18272237144253, "lng": 137.1153295040131 }
+        },
+        {
+            "id": "bx",
+            "latlng": { "lat": 35.184405978614855, "lng": 137.11486816406253 }
+        },
+        {
+            "id": "by",
+            "latlng": { "lat": 35.18408153619567, "lng": 137.11490571498874 }
+        },
+        {
+            "id": "bz",
+            "latlng": { "lat": 35.184037692526175, "lng": 137.11436927318576 }
+        },
+        {
+            "id": "ca",
+            "latlng": { "lat": 35.184533124615086, "lng": 137.11559772491458 }
+        },
+        {
+            "id": "cb",
+            "latlng": { "lat": 35.184555046319154, "lng": 137.11575865745547 }
+        },
+        {
+            "id": "cc",
+            "jp": "13号館",
+            "latlng": { "lat": 35.18476549437734, "lng": 137.1157264709473 }
+        },
+        {
+            "id": "cd",
+            "jp": "6号館",
+            "latlng": { "lat": 35.18458573669492, "lng": 137.11607515811923 }
+        },
+        {
+            "id": "ce",
+            "latlng": { "lat": 35.184484896845326, "lng": 137.11609661579135 }
+        },
+        {
+            "id": "cf",
+            "jp": "3号館",
+            "latlng": { "lat": 35.18392369887477, "lng": 137.11518466472629 }
+        },
+        {
+            "id": "cg",
+            "latlng": { "lat": 35.18383601134181, "lng": 137.11519002914432 }
+        },
+        {
+            "id": "ch",
+            "latlng": { "lat": 35.1838228582037, "lng": 137.1150988340378 }
+        },
+        {
+            "id": "ci",
+            "jp": "3号館別館",
+            "latlng": { "lat": 35.18370009547875, "lng": 137.11510419845584 }
+        },
+        {
+            "id": "cj",
+            "jp": "バイオ環境化学実験棟",
+            "latlng": { "lat": 35.183726401792555, "lng": 137.11538851261142 }
+        },
+        {
+            "id": "ck",
+            "jp": "図書館",
+            "latlng": { "lat": 35.1836211764862, "lng": 137.1129155158997 }
+        },
+        {
+            "id": "cl",
+            "latlng": { "lat": 35.182178699176845, "lng": 137.1138542890549 }
+        },
+        {
+            "id": "cm",
+            "jp": "情報教育センター",
+            "latlng": { "lat": 35.184625195732444, "lng": 137.11497545242312 }
+        },
+        {
+            "id": "cn",
+            "latlng": { "lat": 35.18441036296303, "lng": 137.11499691009524 }
+        },
+        {
+            "id": "co",
+            "jp": "11号館",
+            "latlng": { "lat": 35.18522146330057, "lng": 137.1159249544144 }
+        },
+        {
+            "id": "cp",
+            "jp": "愛和会館",
+            "latlng": { "lat": 35.184221835779134, "lng": 137.112250328064 }
+        },
+        {
+            "id": "cq",
+            "latlng": { "lat": 35.18390177700041, "lng": 137.11492717266086 }
+        }
+    ],
+    "paths": [
+        { "from": "b", "to": "a", "distance": 33 },
+        { "from": "a", "to": "b", "distance": 33 },
+        { "from": "c", "to": "b", "distance": 66 },
+        { "from": "b", "to": "c", "distance": 66 },
+        { "from": "d", "to": "c", "distance": 13 },
+        { "from": "c", "to": "d", "distance": 13 },
+        { "from": "e", "to": "d", "distance": 17 },
+        { "from": "d", "to": "e", "distance": 17 },
+        { "from": "f", "to": "e", "distance": 45 },
+        { "from": "e", "to": "f", "distance": 45 },
+        { "from": "b", "to": "f", "distance": 17 },
+        { "from": "f", "to": "b", "distance": 17 },
+        { "from": "i", "to": "g", "distance": 20 },
+        { "from": "g", "to": "i", "distance": 20 },
+        { "from": "k", "to": "i", "distance": 65 },
+        { "from": "i", "to": "k", "distance": 65 },
+        { "from": "l", "to": "k", "distance": 44 },
+        { "from": "k", "to": "l", "distance": 44 },
+        { "from": "m", "to": "k", "distance": 20 },
+        { "from": "k", "to": "m", "distance": 20 },
+        { "from": "j", "to": "m", "distance": 25 },
+        { "from": "m", "to": "j", "distance": 25 },
+        { "from": "g", "to": "j", "distance": 48 },
+        { "from": "j", "to": "g", "distance": 48 },
+        { "from": "h", "to": "g", "distance": 88 },
+        { "from": "g", "to": "h", "distance": 88 },
+        { "from": "n", "to": "h", "distance": 19 },
+        { "from": "h", "to": "n", "distance": 19 },
+        { "from": "o", "to": "n", "distance": 18 },
+        { "from": "n", "to": "o", "distance": 18 },
+        { "from": "q", "to": "s", "distance": 21 },
+        { "from": "s", "to": "q", "distance": 21 },
+        { "from": "r", "to": "q", "distance": 20 },
+        { "from": "q", "to": "r", "distance": 20 },
+        { "from": "n", "to": "r", "distance": 56 },
+        { "from": "r", "to": "n", "distance": 56 },
+        { "from": "p", "to": "q", "distance": 25 },
+        { "from": "q", "to": "p", "distance": 25 },
+        { "from": "aa", "to": "z", "distance": 21 },
+        { "from": "z", "to": "aa", "distance": 21 },
+        { "from": "q", "to": "ab", "distance": 26 },
+        { "from": "ab", "to": "q", "distance": 26 },
+        { "from": "y", "to": "ab", "distance": 21 },
+        { "from": "ab", "to": "y", "distance": 21 },
+        { "from": "v", "to": "l", "distance": 16 },
+        { "from": "l", "to": "v", "distance": 16 },
+        { "from": "w", "to": "v", "distance": 42 },
+        { "from": "v", "to": "w", "distance": 42 },
+        { "from": "t", "to": "m", "distance": 85 },
+        { "from": "m", "to": "t", "distance": 85 },
+        { "from": "u", "to": "t", "distance": 64 },
+        { "from": "t", "to": "u", "distance": 64 },
+        { "from": "u", "to": "al", "distance": 69 },
+        { "from": "al", "to": "u", "distance": 69 },
+        { "from": "ak", "to": "u", "distance": 81 },
+        { "from": "u", "to": "ak", "distance": 81 },
+        { "from": "aj", "to": "ak", "distance": 61 },
+        { "from": "ak", "to": "aj", "distance": 61 },
+        { "from": "al", "to": "aj", "distance": 87 },
+        { "from": "aj", "to": "al", "distance": 87 },
+        { "from": "af", "to": "aj", "distance": 38 },
+        { "from": "aj", "to": "af", "distance": 38 },
+        { "from": "x", "to": "af", "distance": 20 },
+        { "from": "af", "to": "x", "distance": 20 },
+        { "from": "ad", "to": "x", "distance": 66 },
+        { "from": "x", "to": "ad", "distance": 66 },
+        { "from": "z", "to": "ad", "distance": 59 },
+        { "from": "ad", "to": "z", "distance": 59 },
+        { "from": "ac", "to": "ad", "distance": 26 },
+        { "from": "ad", "to": "ac", "distance": 26 },
+        { "from": "ae", "to": "af", "distance": 18 },
+        { "from": "af", "to": "ae", "distance": 18 },
+        { "from": "ae", "to": "an", "distance": 25 },
+        { "from": "an", "to": "ae", "distance": 25 },
+        { "from": "am", "to": "ae", "distance": 17 },
+        { "from": "ae", "to": "am", "distance": 17 },
+        { "from": "ah", "to": "af", "distance": 24 },
+        { "from": "af", "to": "ah", "distance": 24 },
+        { "from": "ai", "to": "ah", "distance": 23 },
+        { "from": "ah", "to": "ai", "distance": 23 },
+        { "from": "at", "to": "ay", "distance": 31 },
+        { "from": "ay", "to": "at", "distance": 31 },
+        { "from": "as", "to": "at", "distance": 14 },
+        { "from": "at", "to": "as", "distance": 14 },
+        { "from": "av", "to": "at", "distance": 48 },
+        { "from": "at", "to": "av", "distance": 48 },
+        { "from": "au", "to": "av", "distance": 14 },
+        { "from": "av", "to": "au", "distance": 14 },
+        { "from": "aw", "to": "av", "distance": 16 },
+        { "from": "av", "to": "aw", "distance": 16 },
+        { "from": "ax", "to": "aw", "distance": 14 },
+        { "from": "aw", "to": "ax", "distance": 14 },
+        { "from": "p", "to": "ax", "distance": 12 },
+        { "from": "ax", "to": "p", "distance": 12 },
+        { "from": "ay", "to": "ax", "distance": 51 },
+        { "from": "ax", "to": "ay", "distance": 51 },
+        { "from": "au", "to": "as", "distance": 48 },
+        { "from": "as", "to": "au", "distance": 48 },
+        { "from": "az", "to": "ax", "distance": 28 },
+        { "from": "ax", "to": "az", "distance": 28 },
+        { "from": "y", "to": "az", "distance": 15 },
+        { "from": "az", "to": "y", "distance": 15 },
+        { "from": "z", "to": "r", "distance": 69 },
+        { "from": "r", "to": "z", "distance": 69 },
+        { "from": "ag", "to": "x", "distance": 16 },
+        { "from": "x", "to": "ag", "distance": 16 },
+        { "from": "bh", "to": "bq", "distance": 30 },
+        { "from": "bq", "to": "bh", "distance": 30 },
+        { "from": "bd", "to": "bg", "distance": 38 },
+        { "from": "bg", "to": "bd", "distance": 38 },
+        { "from": "bc", "to": "bd", "distance": 26 },
+        { "from": "bd", "to": "bc", "distance": 26 },
+        { "from": "am", "to": "bc", "distance": 39 },
+        { "from": "bc", "to": "am", "distance": 39 },
+        { "from": "ao", "to": "am", "distance": 18 },
+        { "from": "am", "to": "ao", "distance": 18 },
+        { "from": "ap", "to": "ao", "distance": 26 },
+        { "from": "ao", "to": "ap", "distance": 26 },
+        { "from": "ba", "to": "ap", "distance": 15 },
+        { "from": "ap", "to": "ba", "distance": 15 },
+        { "from": "ba", "to": "ar", "distance": 70 },
+        { "from": "ar", "to": "ba", "distance": 70 },
+        { "from": "aq", "to": "ap", "distance": 118 },
+        { "from": "ap", "to": "aq", "distance": 118 },
+        { "from": "bc", "to": "bb", "distance": 19 },
+        { "from": "bb", "to": "bc", "distance": 19 },
+        { "from": "bd", "to": "be", "distance": 15 },
+        { "from": "be", "to": "bd", "distance": 15 },
+        { "from": "be", "to": "an", "distance": 39 },
+        { "from": "an", "to": "be", "distance": 39 },
+        { "from": "ah", "to": "an", "distance": 18 },
+        { "from": "an", "to": "ah", "distance": 18 },
+        { "from": "bf", "to": "bg", "distance": 20 },
+        { "from": "bg", "to": "bf", "distance": 20 },
+        { "from": "br", "to": "bh", "distance": 8 },
+        { "from": "bh", "to": "br", "distance": 8 },
+        { "from": "bi", "to": "br", "distance": 35 },
+        { "from": "br", "to": "bi", "distance": 35 },
+        { "from": "bj", "to": "br", "distance": 51 },
+        { "from": "br", "to": "bj", "distance": 51 },
+        { "from": "bm", "to": "bj", "distance": 21 },
+        { "from": "bj", "to": "bm", "distance": 21 },
+        { "from": "bk", "to": "bm", "distance": 17 },
+        { "from": "bm", "to": "bk", "distance": 17 },
+        { "from": "bn", "to": "bk", "distance": 28 },
+        { "from": "bk", "to": "bn", "distance": 28 },
+        { "from": "bo", "to": "bn", "distance": 32 },
+        { "from": "bn", "to": "bo", "distance": 32 },
+        { "from": "bp", "to": "bo", "distance": 10 },
+        { "from": "bo", "to": "bp", "distance": 10 },
+        { "from": "bq", "to": "bp", "distance": 12 },
+        { "from": "bp", "to": "bq", "distance": 12 },
+        { "from": "co", "to": "bk", "distance": 41 },
+        { "from": "bk", "to": "co", "distance": 41 },
+        { "from": "bl", "to": "co", "distance": 13 },
+        { "from": "co", "to": "bl", "distance": 13 },
+        { "from": "bm", "to": "bl", "distance": 40 },
+        { "from": "bl", "to": "bm", "distance": 40 },
+        { "from": "bv", "to": "bw", "distance": 9 },
+        { "from": "bw", "to": "bv", "distance": 9 },
+        { "from": "bu", "to": "bv", "distance": 14 },
+        { "from": "bv", "to": "bu", "distance": 14 },
+        { "from": "bt", "to": "bu", "distance": 67 },
+        { "from": "bu", "to": "bt", "distance": 67 },
+        { "from": "bs", "to": "bt", "distance": 7 },
+        { "from": "bt", "to": "bs", "distance": 7 },
+        { "from": "bi", "to": "bs", "distance": 64 },
+        { "from": "bs", "to": "bi", "distance": 64 },
+        { "from": "bz", "to": "ah", "distance": 40 },
+        { "from": "ah", "to": "bz", "distance": 40 },
+        { "from": "be", "to": "bz", "distance": 18 },
+        { "from": "bz", "to": "be", "distance": 18 },
+        { "from": "by", "to": "bz", "distance": 53 },
+        { "from": "bz", "to": "by", "distance": 53 },
+        { "from": "bx", "to": "by", "distance": 32 },
+        { "from": "by", "to": "bx", "distance": 32 },
+        { "from": "bx", "to": "bg", "distance": 14 },
+        { "from": "bg", "to": "bx", "distance": 14 },
+        { "from": "bi", "to": "by", "distance": 60 },
+        { "from": "by", "to": "bi", "distance": 60 },
+        { "from": "ab", "to": "aa", "distance": 44 },
+        { "from": "aa", "to": "ab", "distance": 44 },
+        { "from": "ca", "to": "bj", "distance": 28 },
+        { "from": "bj", "to": "ca", "distance": 28 },
+        { "from": "cb", "to": "ca", "distance": 16 },
+        { "from": "ca", "to": "cb", "distance": 16 },
+        { "from": "cc", "to": "cb", "distance": 21 },
+        { "from": "cb", "to": "cc", "distance": 21 },
+        { "from": "cd", "to": "cb", "distance": 31 },
+        { "from": "cb", "to": "cd", "distance": 31 },
+        { "from": "ce", "to": "br", "distance": 83 },
+        { "from": "br", "to": "ce", "distance": 83 },
+        { "from": "cd", "to": "ce", "distance": 10 },
+        { "from": "ce", "to": "cd", "distance": 10 },
+        { "from": "ci", "to": "cj", "distance": 28 },
+        { "from": "cj", "to": "ci", "distance": 28 },
+        { "from": "ch", "to": "ci", "distance": 12 },
+        { "from": "ci", "to": "ch", "distance": 12 },
+        { "from": "cg", "to": "ch", "distance": 9 },
+        { "from": "ch", "to": "cg", "distance": 9 },
+        { "from": "cf", "to": "cg", "distance": 8 },
+        { "from": "cg", "to": "cf", "distance": 8 },
+        { "from": "ay", "to": "o", "distance": 38 },
+        { "from": "o", "to": "ay", "distance": 38 },
+        { "from": "s", "to": "o", "distance": 32 },
+        { "from": "o", "to": "s", "distance": 32 },
+        { "from": "ad", "to": "ck", "distance": 21 },
+        { "from": "ck", "to": "ad", "distance": 21 },
+        { "from": "g", "to": "d", "distance": 67 },
+        { "from": "d", "to": "g", "distance": 67 },
+        { "from": "al", "to": "bw", "distance": 148 },
+        { "from": "bw", "to": "al", "distance": 148 },
+        { "from": "cl", "to": "al", "distance": 56 },
+        { "from": "al", "to": "cl", "distance": 56 },
+        { "from": "bf", "to": "cm", "distance": 28 },
+        { "from": "cm", "to": "bf", "distance": 28 },
+        { "from": "cn", "to": "bx", "distance": 12 },
+        { "from": "bx", "to": "cn", "distance": 12 },
+        { "from": "bh", "to": "cn", "distance": 18 },
+        { "from": "cn", "to": "bh", "distance": 18 },
+        { "from": "cm", "to": "cn", "distance": 21 },
+        { "from": "cn", "to": "cm", "distance": 21 },
+        { "from": "aa", "to": "cp", "distance": 22 },
+        { "from": "cp", "to": "aa", "distance": 22 },
+        { "from": "aq", "to": "cp", "distance": 26 },
+        { "from": "cp", "to": "aq", "distance": 26 },
+        { "from": "y", "to": "cp", "distance": 43 },
+        { "from": "cp", "to": "y", "distance": 43 },
+        { "from": "by", "to": "cq", "distance": 18 },
+        { "from": "cq", "to": "by", "distance": 18 },
+        { "from": "cf", "to": "cq", "distance": 25 },
+        { "from": "cq", "to": "cf", "distance": 25 }
+    ]
+}
