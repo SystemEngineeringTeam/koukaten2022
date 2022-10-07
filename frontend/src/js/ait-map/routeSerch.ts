@@ -28,21 +28,13 @@ const setDom = () => {
         `<option value="${v.id}"${k ? "" : " selected"}>${v.jp}</option>`
     ).join();
 
-    document.querySelector('body')!.insertAdjacentHTML('beforeend', `
-        <div class="wrapper">
-            <label>
-                From
-                <select id="route-from">${optionDoms}</select>
-            <label>
-                To
-                <select id="route-to">${optionDoms}</select>
-            </label>
-        </div>
-    `);
+    document.querySelectorAll('.selector>select').forEach(elm => {
+        elm.innerHTML = optionDoms;
+    });
 
     return {
-        from: document.querySelector<HTMLSelectElement>('#route-from')!,
-        to: document.querySelector<HTMLSelectElement>('#route-to')!
+        from: document.querySelector<HTMLSelectElement>('#from')!,
+        to: document.querySelector<HTMLSelectElement>('#to')!
     };
 };
 
