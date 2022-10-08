@@ -8,7 +8,7 @@ import (
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
 
-func start_up() {
+func Start_up() {
 
 	err := godotenv.Load(".env")
 	if err != nil {
