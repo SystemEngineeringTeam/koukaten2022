@@ -81,7 +81,7 @@ func GetCoordinate(uri, username, password, from, to string) ([]float64, []float
 	return lat, lng, nil
 }
 
-func Routing(this_lat, this_lng float64, from, to string) []byte {
+func Routing(from, to string) []byte {
 	err := godotenv.Load(".env")
 	if err != nil {
 		fmt.Printf("can't read: %v", err)
@@ -98,7 +98,7 @@ func Routing(this_lat, this_lng float64, from, to string) []byte {
 	// }
 
 	//出発地点から目的地までの各ポイントの座標を取得
-	lat, lng, err := GetCoordinate(uri, username, pass, "10号館", "4号館")
+	lat, lng, err := GetCoordinate(uri, username, pass, from, to)
 	if err != nil {
 		panic(err)
 	}
