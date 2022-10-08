@@ -15,35 +15,41 @@
         </header>
 
         <div class="space"></div>
-        <form method="post" action="/search">
+        <form name="main">
             <ul>
                 <li>
-                    <label for="prefecture">学年 : </label><select name="grade"><option value="">選択してください</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    </select>
+                    <label for="prefecture">学年 :
+                        <select id="grade">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </label>
                 </li>
                 <li>
-                    <label for="prefecture">曜日 : </label><select name="day"><option value="">選択してください</option>
-                    <option value="月">月</option>
-                    <option value="火">火</option>
-                    <option value="水">水</option>
-                    <option value="木">木</option>
-                    <option value="金">金</option>
-                    <option value="土">土</option>
-                    </select>
+                    <label for="prefecture">曜日 :
+                        <select id="day">
+                            <option value="mon">月</option>
+                            <option value="tue">火</option>
+                            <option value="wed">水</option>
+                            <option value="thu">木</option>
+                            <option value="fri">金</option>
+                            <option value="sat">土</option>
+                        </select>
+                    </label>
                 </li>
                 <li>
-                    <label for="prefecture">時限 : </label><select name="time"><option value="">選択してください</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    </select>
+                    <label for="prefecture">時限 :
+                        <select id="lecture">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </label>
                 </li>
             </ul>
             <p><input type="submit" value="Send"></p>
