@@ -108,10 +108,10 @@ func Routing(from, to string) []byte {
 		co = append(co, Coordinate{lat[i], lng[i]})
 	}
 
-	fmt.Println(lat)
+	// fmt.Println(lat)
 	// fmt.Println(lng)
 	// fmt.Println(co)
 	coordinate, _ := json.Marshal(co)
-	fmt.Println(string(coordinate))
+	// fmt.Println(string(coordinate))
 	return coordinate
 }

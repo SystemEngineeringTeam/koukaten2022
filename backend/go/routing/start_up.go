@@ -1,8 +1,24 @@
 package routing
 
-import "github.com/neo4j/neo4j-go-driver/neo4j"
+import (
+	"fmt"
+	"os"
 
-func start_up(uri, username, password string) {
+	"github.com/joho/godotenv"
+	"github.com/neo4j/neo4j-go-driver/neo4j"
+)
+
+func start_up() {
+
+	err := godotenv.Load(".env")
+	if err != nil {
+		fmt.Printf("can't read: %v", err)
+	}
+
+	uri := os.Getenv("NEO4J_URI")
+	username := os.Getenv("NEO4J_USERNAME")
+	password := os.Getenv("NEO4J_PASS")
+
 	configForNeo4j4 := func(conf *neo4j.Config) { conf.Encrypted = false }
 	driver, err := neo4j.NewDriver(uri, neo4j.BasicAuth(username, password, ""), configForNeo4j4)
 	if err != nil {
