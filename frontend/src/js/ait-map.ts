@@ -35,6 +35,18 @@ const main = () => {
 
     // L.polyline(EXAMPLE_ROUTE, { color: 'red', opacity: 0.5 }).addTo(map);
 
+
+    let m: L.Marker;
+    navigator.geolocation.getCurrentPosition(position => {
+        m = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);;
+        setInterval(() =>
+            navigator.geolocation.watchPosition(position => {
+                m.setLatLng([position.coords.latitude, position.coords.longitude])
+            }),
+            5e3
+        );
+    });
+
     // registerRouteData(map);
     routeSerch(map);
     setTimetable();
