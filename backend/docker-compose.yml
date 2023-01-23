@@ -1,39 +1,16 @@
-# version: "3"
-# services:
-  # go:
-  #   container_name: koukaten2022_GO
-  #   build:
-  #     context: ./docker/app
-  #     dockerfile: Dockerfile
-  #   stdin_open: true
-  #   tty: true
-  #   env_file:
-  #     - ./Docker/app/.env
-  #   volumes:
-  #     - type: bind
-  #       source: ./go
-  #       target: /go/app
-  #   ports:
-  #     - 8080:8080
-  #   depends_on:
-  #     - "mysql"
-
 version: "3"
 services:
   go:
     container_name: koukaten2022_GO
     build:
-      context: ./docker/app
+      context: ./docker/go
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
     env_file:
-      - ./Docker/app/.env
+      - ./Docker/go/.env
     volumes:
-      - type: bind
-        source: ./go
-        target: /go/app
-      - ../frontend/dist:/go/app/frontend/dist
+      - ./go:/go/src/app
     ports:
       - 8080:8080
     depends_on:
@@ -50,27 +27,26 @@ services:
       - ./docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin
+    depends_on:
+      - "neo4j"
 
   neo4j:
-    container_name: koukaten2022_neo4j
-    build: ./docker/neo4j
-    image: koukaten_neo4j
+    container_name: koukaten2022_NEO4J
+    build:
+      context: ./docker/neo4j
+      dockerfile: Dockerfile
+    restart: always
+    extra_hosts:
+      - localhost:172.21.0.1
     ports:
-      - "57474:7474"
-      - "57687:7687"
+      - 57474:7474
+      - 57687:7687
     volumes:
-      - ./docker/neo4j/data:/data
-      - ./docker/neo4j/logs:/logs
-      - ./docker/neo4j/conf:/conf
-      - ./docker/neo4j/import:/import
-      - ./docker/neo4j/script:/script
+      - ./docker/neo4j/volumes/data:/data
+      - ./docker/neo4j/volumes/logs:/logs
+      - ./docker/neo4j/volumes/conf:/conf
+      - ./docker/neo4j/volumes/import:/import
+      - ./docker/neo4j/volumes/script:/script
     environment:
-    - NEO4J_AUTH=neo4j/admin
-
-    - NEO4JLABS_PLUGINS=["apoc","graph-data-science"]
-    - NEO4J_dbms_memory_heap_max__size=1G
-    - NEO4J_dbms_memory_heap_initial__size=1G
-    - NEO4J_dbms_memory_pagecache_size=113725k
-    - NEO4J_dbms_memory.off_heap.max_size=625m
-
-    - EXTENSION_SCRIPT=/script/import_data.sh
+      - NEO4J_AUTH=neo4j/admin
+      - EXTENSION_SCRIPT=/script/import_data.sh

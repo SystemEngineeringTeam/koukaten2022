@@ -3612,13 +3612,13 @@ VALUES
 INSERT INTO
     data_sets.class_rooms(room_number, room_name, building_name, floor)
 VALUES
-    ('ﾏｲｺﾝ室1', 'ﾏｲｺﾝ室1', '計算センター', 3);
+    ('マイコン室1', 'マイコン室1', '計算センター', 3);
 
 /* INSERT QUERY */
 INSERT INTO
     data_sets.class_rooms(room_number, room_name, building_name, floor)
 VALUES
-    ('ﾏｲｺﾝ室2', 'ﾏｲｺﾝ室2', '計算センター', 3);
+    ('マイコン室2', 'マイコン室2', '計算センター', 3);
 
 /* INSERT QUERY */
 INSERT INTO
