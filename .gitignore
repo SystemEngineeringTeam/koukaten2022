@@ -1,2 +1,5 @@
-.DS_STORE
 backend/go/tmp
+backend/Docker/neo4j/volumes/data
+backend/Docker/neo4j/volumes/conf
+backend/Docker/neo4j/volumes/logs
+backend/Docker/neo4j/volumes/import/done

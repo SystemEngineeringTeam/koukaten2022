@@ -1,0 +1,12 @@
+# APIサーバーのテスト用コマンド
+
+# GET http://localhost:8080/search?bn=1&rn=&sn=
+
+# GET http://localhost:8080/building?bn=10号館大講義
+
+# GET http://localhost:8080/classroom?rn=G2210
+
+# GET http://localhost:8080/subject?sn=人工知能
+
+GET http://localhost:8080/coordinate?fr=10号館&to=4号館
+
