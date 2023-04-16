@@ -33,7 +33,7 @@ export default function MapDisplay(props: Props) {
   ];
 
   const coodiante: L.LatLngExpression[][] = [
-    coordinates.map((data) => {
+    coordinates?.map((data) => {
       return [data.latitude, data.longitude];
     }),
   ];
