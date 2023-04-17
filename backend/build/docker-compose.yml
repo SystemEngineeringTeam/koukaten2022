@@ -28,9 +28,9 @@ services:
       - ./Docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin
-    networks:
-      app_net:
-        ipv4_address: 192.168.0.2
+    # networks:
+    #   app_net:
+    #     ipv4_address: 192.168.0.2
     depends_on:
       - "neo4j"
 
@@ -52,14 +52,14 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/admin
       - EXTENSION_SCRIPT=/script/import_data.sh
-    networks:
-      app_net:
-        ipv4_address: 192.168.0.3
+    # networks:
+    #   app_net:
+    #     ipv4_address: 192.168.0.3
 
-networks:
-  app_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.0.0/24
+# networks:
+#   app_net:
+#     driver: bridge
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 192.168.0.0/24
