@@ -6,7 +6,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/config"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/config"
 )
 
 var db *gorm.DB

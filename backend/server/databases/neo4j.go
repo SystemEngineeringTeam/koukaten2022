@@ -3,7 +3,7 @@ package databases
 import (
 	"log"
 
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/config"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/config"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 )
 

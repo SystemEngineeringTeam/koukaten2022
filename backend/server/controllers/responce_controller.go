@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/models"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/models"
 )
 
 // AND検索して科目データを返す

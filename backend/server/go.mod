@@ -1,14 +1,13 @@
-module github.com/karasuneo/aikodai-annai-suru-zo/backend/server
+module github.com/SystemEngineeringTeam/koukaten2022/backend/server
 
 go 1.20
 
 require (
 	github.com/gin-gonic/gin v1.9.0
-	github.com/karasuneo/aikodai-annai-suru-zo/backend v0.0.0-20230408160612-ae7ef1283e14
 	github.com/neo4j/neo4j-go-driver/v4 v4.4.7
 	github.com/spf13/viper v1.15.0
-	gorm.io/driver/mysql v1.4.7
-	gorm.io/gorm v1.24.6
+	gorm.io/driver/mysql v1.5.0
+	gorm.io/gorm v1.25.0
 )
 
 require (

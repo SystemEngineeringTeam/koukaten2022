@@ -1,13 +1,9 @@
 package main
 
 import (
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/config"
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/router"
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/utils"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/router"
 )
 
 func main() {
-	l := config.GetLogConfig()
-	utils.LoggingSettings(l.GetString("log.filename"))
 	router.Init()
 }

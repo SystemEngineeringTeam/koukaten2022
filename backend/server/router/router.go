@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/controllers"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/controllers"
 )
 
 func Init() {

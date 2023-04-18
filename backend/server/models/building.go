@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/databases"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/databases"
 )
 
 // Building テーブル情報

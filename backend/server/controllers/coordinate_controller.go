@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/models"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/models"
 )
 
 func RouteSearch(c *gin.Context) {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/karasuneo/aikodai-annai-suru-zo/backend/databases"
+	"github.com/SystemEngineeringTeam/koukaten2022/backend/server/databases"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 )
 
