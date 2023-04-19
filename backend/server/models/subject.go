@@ -1,4 +1,4 @@
-package model
+package models
 
 import (
 	"reflect"
@@ -20,82 +20,71 @@ type Subject struct {
 }
 
 // 科目名を検索してデータを取得
-func GetSubjectName(subject_name string) []*Responce {
-	building := []*Building{}
-	subject := []*Subject{}
-	result := []*Responce{}
-
+func GetSubjectName(sn string) []*Response {
+	b := []*Building{}
+	s := []*Subject{}
+	res := []*Response{}
 	// subject_nameが空文字だった時
-	if subject_name == "" {
-		return result
+	if sn == "" {
+		return res
 	}
-
-	db.Where("subject_name LIKE ?", "%"+subject_name+"%").Find(&subject)
-	building = CombineSubject(subject)
-	result = PerseResponse(building)
-
-	if len(result) == 0 {
-		result = nil
+	db.Where("subject_name LIKE ?", "%"+sn+"%").Find(&s)
+	b = CombineSubjectTable(s)
+	res = PerseResponse(b)
+	if len(res) == 0 {
+		res = nil
 	}
-	
-	return result
+	return res
 }
 
 // Subjectテーブル検索の時テーブルを結合
-func CombineSubject(subject []*Subject) []*Building {
+func CombineSubjectTable(s []*Subject) []*Building {
 	//構造体の定義
 	result := []*Building{}
-	building := []*Building{}
-	class_room := []*ClassRoom{}
-	class_room_tmp1 := []*ClassRoom{}
-	class_room_tmp2 := []*ClassRoom{}
-	class_room_tmp3 := []*ClassRoom{}
-
+	b := []*Building{}
+	cr := []*ClassRoom{}
+	cr1 := []*ClassRoom{}
+	cr2 := []*ClassRoom{}
+	cr3 := []*ClassRoom{}
 	//DBのデータを構造体の配列に格納
-	db.Find(&building)
-	db.Find(&class_room_tmp1)
-
+	db.Find(&b)
+	db.Find(&cr1)
 	//ClassRoomのSubjectに構造体を入れる
-	for _, ct := range class_room_tmp1 {
-		for _, s := range subject {
-			if ct.RoomNumber == s.ClassRoom {
-				db.Where("room_number LIKE ?", ct.RoomNumber).Find(&class_room_tmp2)
-				class_room_tmp3 = append(class_room_tmp3, class_room_tmp2...)
-				for _, ct3 := range class_room_tmp3 {
+	for _, cr1 := range cr1 {
+		for _, s := range s {
+			if cr1.RoomNumber == s.ClassRoom {
+				db.Where("room_number LIKE ?", cr1.RoomNumber).Find(&cr2)
+				cr3 = append(cr3, cr2...)
+				for _, ct3 := range cr3 {
 					if ct3.RoomNumber == s.ClassRoom {
 						ct3.Subjects = append(ct3.Subjects, *s)
 					}
 				}
 			}
 		}
-
 	}
-
 	// ClassRoomをユニークにするためのmapの定義
 	m := make(map[string]bool)
-	for _, ct3 := range class_room_tmp3 {
-		if !m[ct3.RoomNumber] {
-			m[ct3.RoomNumber] = true
-			class_room = append(class_room, ct3)
+	for _, cr3 := range cr3 {
+		if !m[cr3.RoomNumber] {
+			m[cr3.RoomNumber] = true
+			cr = append(cr, cr3)
 		}
 	}
-
 	//BuilgingのClassRoomに構造体を入れる
-	for _, b := range building {
-		for _, c := range class_room {
-			if b.BuildingName == c.BuildingName {
-				b.ClassRooms = append(b.ClassRooms, *c)
+	for _, b := range b {
+		for _, cr := range cr {
+			if b.BuildingName == cr.BuildingName {
+				b.ClassRooms = append(b.ClassRooms, *cr)
 			}
 		}
 	}
-
 	// ClassRoomに何も入っていないスライスは返さないようにする
-	for _, b := range building {
+	for _, b := range b {
 		if (b.ClassRooms != nil) || !reflect.ValueOf(b.ClassRooms).IsNil() {
 			result = append(result, *&b)
 		}
 	}
-
 	return result
 }
 

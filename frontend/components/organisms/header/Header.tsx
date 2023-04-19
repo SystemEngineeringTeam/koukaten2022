@@ -7,7 +7,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiMenu, FiSearch } from "react-icons/fi";
-import { UserIcon } from "../../atoms/user/UserIcon";
 import { UserDetailModal } from "../map/CoordinateSearchModal";
 import { FC } from "react";
 
@@ -24,8 +23,9 @@ export const Header: FC<Props> = (props) => {
       ml={{ base: 0, md: 40 }}
       px={{ base: 4, md: 4 }}
       height="20"
+      
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("blue.300", "blue.900")}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}

@@ -1,0 +1,6 @@
+go/tmp
+build/Docker/neo4j/volumes/data
+build/Docker/neo4j/volumes/conf
+build/Docker/neo4j/volumes/logs
+build/Docker/neo4j/volumes/import/done
+server/db.log
