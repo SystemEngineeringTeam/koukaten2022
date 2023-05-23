@@ -41,7 +41,7 @@ npm start
 1. Docker イメージを取得しコンテナを立てる
 
 ```bash
-docker compose build
+cd backend/build
 
 docker compose up -d
 ```
